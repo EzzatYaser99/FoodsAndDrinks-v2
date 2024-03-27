@@ -1,0 +1,12 @@
+<!--<span class="mx-2" >{{orderPrice | currency:'USD'}}-->
+<!--  <i class="fas fa-coins text-white mx-2 cursor-pointer"></i>-->
+<!--  <i class="fa-solid fa-cart-shopping text-white mx-2 cursor-pointer">-->
+<!--    | {{orderSize}} </i></span>-->
+<a routerLink="purchases">
+<span class="mx-1 goldUser">{{orderPrice | currency:'USD'}}
+  <i class="fas fa-coins text-white mx-1"></i></span>
+
+  <span class="mx-1 goldUser">{{orderSize}}
+    <i class="fa-solid fa-cart-shopping text-white mx-1"></i>
+</span>
+</a>

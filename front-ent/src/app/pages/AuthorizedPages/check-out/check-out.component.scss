@@ -1,0 +1,52 @@
+@import "src/app/pages/AuthorizedPages/purchases/purchases.component";
+
+.check-out {
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 21px;
+  font-weight: bold;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+.size {
+  //background-color: crimson;
+  padding: 8px;
+
+}
+
+.size, .totalprice {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  border: 2px solid gold;
+  border-radius: 10px;
+}
+
+.totalprice {
+  //background-color: blueviolet;
+}
+
+i {
+  color: white;
+}
+
+span {
+  background-color: black;
+  color: white;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+}
+
+.formgrid {
+  border: 2px solid #ffbe33;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 2px solid black;
+  border-top: none;
+
+}

@@ -1,0 +1,87 @@
+/*Start section*/
+footer {
+  background-color: #222831;
+}
+
+footer .contentOne {
+  text-align: center;
+}
+
+footer .contentOne h2 {
+  color: white;
+  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
+}
+
+footer .contentOne h2 a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Dancing Script', cursive;
+}
+
+footer .contentOne li {
+  display: block;
+  margin-top: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+footer .contentOne li a {
+  text-decoration: none;
+  color: white;
+}
+
+footer .contentOne li a:hover {
+  color: #ffbe33;
+}
+
+footer .contentOne p {
+  color: white;
+}
+
+.contentOne a .pi {
+  transition: all .4s;
+}
+
+.contentOne .socialMedia i {
+  font-size: 25px;
+  padding: 8px;
+  color: white !important;
+  transition: all .5s;
+  margin-top: 10px;
+}
+
+.contentOne .socialMedia .pi-facebook:hover {
+  color: #0b40ec !important;
+}
+
+.contentOne .socialMedia .pi-google:hover {
+  color: #a22222 !important;
+}
+
+.contentOne .socialMedia .pi-linkedin:hover {
+  color: #266aea !important;
+}
+
+.contentOne .socialMedia .pi-twitter:hover {
+  color: #5cb3dc !important;
+}
+
+.contentOne .socialMedia .pi-instagram:hover {
+  color: #da6502 !important;
+
+}
+
+footer .contentTwo {
+  text-align: center;
+}
+
+.contentTwo p {
+  color: whitesmoke;
+}
+
+.contentTwo p .pi-heart-fill {
+  font-size: 15px;
+}
+
+/*End section*/

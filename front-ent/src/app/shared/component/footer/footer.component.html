@@ -1,0 +1,49 @@
+<section>
+  <footer class="p-6">
+    <div class="w-11 m-auto px-5">
+      <div class="grid">
+        <div class="col-12 md:col-12 lg:col-4 ">
+          <div class="contentOne">
+            <h2>Contact Us</h2>
+            <ul>
+              <li *ngFor="let item of footerContactDetails">
+                <a [href]="item.contactDetailsHerf" target="_blank">
+                  <i class="{{item.contactDetailsIcon}} mr-2"></i>
+                  {{item.contactDetailsCommand}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class=" col-12 md:col-12 lg:col-4 ">
+          <div class="contentOne">
+            <h2><a href="#">Feane</a></h2>
+            <p class="md:ml-4 md:mr-5 sm:ml-6 ">Necessary, making this the first true generator
+              on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
+            <div *ngIf="footerSocialData" class="socialMedia">
+              <a *ngFor="let item of footerSocialData" [href]="item.contactDetailsHerf" [title]="item.title"
+                 class="zoomin"
+                 target="_blank">
+                <i *ngIf="item.socialMediaIcon" class="{{item.socialMediaIcon}}"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-12 lg:col-4 ">
+          <div class="contentOne">
+            <h2>Opening Days</h2>
+            <ul>
+              <li *ngFor="let item of footerOpenDays">{{item.openDays}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-12 md:col-12 lg:col-12">
+          <div class="contentTwo m-auto mt-6">
+            <p>© copyright 2023 ,All Rright reserved By NTGApps <i class="pi pi-heart-fill p-1"></i></p>
+            <p>© Distributed By <span class="text-yellow-500">NTGApps</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>

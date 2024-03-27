@@ -1,0 +1,50 @@
+<section class="bg_section overflow-x-hidden ">
+  <div class="w-full m-auto ">
+
+    <div class="grid">
+      <div
+        class=" col-12  check-out xl:w-8 md:w-9 sm:w-12  sm:text-xl m-auto flex justify-content-between p-3 align-items-center align-content-center">
+        <div class="size">Total Order : {{orderSize}}</div>
+        <div class="totalprice">Total Price : {{orderPrice|currency:'USD'}}</div>
+        <button (click)="goToCheckOut()" [disabled]="orders.length==0" class="p-button-info" icon=" pi pi-check"
+                label="Done"
+                pButton></button>
+      </div>
+    </div>
+
+    <div *ngIf="orders.length==0" class="grid mt-8 ">
+      <div class="p-dataview-emptymessage col-12  xl:w-8 md:w-9 sm:w-12 s  m-auto text-black-alpha-90 ">
+        No Order Selected
+      </div>
+    </div>
+
+    <!--      lg:col-4 md:col-6 md:p-3 sm:col-12 sm:px-4 sm:pt-2-->
+    <div class="grid  p-4 sm:p-6">
+      <div *ngFor="let item of orders" class=
+        " px-5 xl:col-3 lg:col-4 md:col-6 md:p-3 sm:col-12 sm:px-5 sm:pt-2">
+        <div class="card_two order-item">
+          <div class="total_price ">
+            <span class="block text-green-500"><span
+              class="text-black-alpha-90">total : </span> {{(item.price * item.quantity) | currency:'USD' }}</span>
+          </div>
+          <div class="product-grid-item-content mt-2 p-1 ">
+            <img [alt]="item.name" class="w-full border-round-xl" src="assets/img/{{item.image}}.jpg">
+            <h2 class="mt-2 flex">{{item.name}}</h2>
+            <span class="my-2 text-xl">{{item.price  |  currency:'USD' }}</span>
+          </div>
+          <div class="flex justify-content-between mt-2 px-1">
+
+            <span class="cursor-pointer">
+              <i (click)="increamentOrders(item)" class="fas fa-plus "></i></span>
+            <span>{{item.quantity}}</span>
+            <span class="cursor-pointer"><i (click)="decreamentOrders(item)" class="fas fa-minus"></i></span>
+          </div>
+          <button (click)="removeOrders(item)" class="p-button-danger mt-2 w-full" icon="fas fa-duotone fa-trash"
+                  label="Remove" pButton></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

@@ -1,0 +1,42 @@
+.product-item {
+  .product-item-content {
+    //border: 1px solid var(--surface-d);
+    border-radius: 3px;
+    margin: .3rem;
+    text-align: center !important;
+    padding: 2rem 0;
+  }
+
+  .product-image {
+    width: 100% !important;
+
+    //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgb(238, 183, 3), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+.carsoul-bg {
+  background-image: url(../../../../assets/img/homebg.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  //height: 650px;
+}
+
+.carsoul-bg h2 {
+  color: white;
+  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.p-button {
+  color: #ffffff;
+  background: #000000;
+  border: 1px solid #ffbe33;
+}
+
+.p-button:hover {
+  color: #ffffff;
+  background: #000000;
+  border: 1px solid #ffbe33;
+
+}

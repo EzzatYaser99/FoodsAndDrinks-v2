@@ -1,0 +1,39 @@
+.bg_section {
+  background-image: linear-gradient(to right, rgba(21, 14, 14, 0.16), rgba(0, 0, 0, 0.79));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 100px);
+}
+
+.card_two i {
+  background-color: black;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+}
+
+
+.check-out {
+  background-color: #0c0c0c;
+  font-size: 21px;
+  font-weight: bold;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 2px solid #ffbe33;
+}
+
+.size {
+  //background-color: crimson;
+  padding: 8px;
+  color: aliceblue;
+  border: 1px solid #ffbe33;
+  border-radius: 10px;
+}
+
+.totalprice {
+  //background-color: blueviolet;
+  padding: 8px;
+  color: aliceblue;
+  border: 1px solid #ffbe33;
+  border-radius: 10px;
+}

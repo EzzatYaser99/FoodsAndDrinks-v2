@@ -1,0 +1,20 @@
+.scrollbtn {
+  position: fixed;
+  bottom: calc(100vh - 99vh);
+  right: 20px;
+}
+
+.scrollbtn .btn {
+  border-radius: 20%;
+}
+
+.scrollbtn i {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: transparent;
+  border-color: transparent;
+}

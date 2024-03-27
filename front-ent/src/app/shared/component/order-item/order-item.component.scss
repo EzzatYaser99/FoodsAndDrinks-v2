@@ -1,0 +1,26 @@
+.bg_section {
+  background-image: url(../../../../assets/img/res.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 100px)
+}
+
+.card_two:hover {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  //color: white;
+  background-image: linear-gradient(to right, rgba(21, 14, 14, 0.16), rgba(0, 0, 0, 0.79));
+  //transform: scale(1.09);
+}
+
+.mybtn {
+  color: white;
+  border: 1px solid gold;
+  background-color: #000000 !important;
+  transition: all .3s;
+}
+
+.p-button {
+  border: 1px solid gold !important;
+
+}

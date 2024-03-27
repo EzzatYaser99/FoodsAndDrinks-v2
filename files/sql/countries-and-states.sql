@@ -1,0 +1,30 @@
+INSERT INTO restaurant.country (id,code,name) VALUES 
+(1,'EG','Egypt');
+
+INSERT INTO restaurant.state (name,country_id) VALUES 
+('Alexandria',1),
+('Aswan',1),
+('Asyut',1),
+('Beheira',1),
+('BeniSuef',1),
+('Cairo',1),
+('Dakahlia',1),
+('Damietta',1),
+('Faiyum',1),
+('Gharbia',1),
+('Giza',1),
+('Ismailia',1),
+('Kafr El Sheikh',1),
+('Luxor',1),
+('Matruh',1),
+('Minya',1),
+('Monufia',1),
+('New Valley',1),
+('North Sinai',1),
+('Port Said',1),
+('Qalyubia',1),
+('Qena',1),
+('Red Sea',1),
+('Sharqia',1),
+('South Sinai',1),
+('Suez',1);

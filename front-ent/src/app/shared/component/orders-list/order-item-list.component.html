@@ -1,0 +1,19 @@
+<div class="product-list-item">
+
+  <img [alt]="data.name" class="cursor-pointer md:w-3 sm:w-5" routerLink="details/{{data.id}}"
+       src="assets/img/{{data.image}}.jpg">
+
+  <!--  <img src="assets/img/{{data.image}}.jpg" [alt]="data.name"/>-->
+  <div class="product-list-detail">
+    <div class="product-name">{{data.name}}</div>
+    <div class="product-description">{{data.description}}</div>
+    <p-rating [cancel]="false" [ngModel]="data.rating" [readonly]="true"></p-rating>
+    <!-- <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>-->
+  </div>
+  <div class="product-list-action">
+    <span class="product-price">${{data.price}}</span>
+    <p-button [disabled]="data.inventoryStatus === 'OUTOFSTOCK'" icon="pi pi-shopping-cart"
+              label="Add to Cart"></p-button>
+    <span [class]="'product-badge status-' + data.inventoryStatus">{{data.inventoryStatus}}</span>
+  </div>
+</div>

@@ -1,0 +1,309 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #0c0c0c;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  overflow: auto;
+  //height: 5000px; /* Make this site really long */
+  ////width: 5000px; /* Make this site really wide */
+  //overflow: hidden; /* Hide scrollbars */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Start Style ScorllBar*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* End Style ScorllBar*/
+
+/* Start header Style*/
+//Container element
+.p-menubar {
+  background-image: linear-gradient(to left, rgb(17, 17, 17), rgb(10, 10, 10)) !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.p-menuitem-link {
+  margin-left: 5px;
+}
+
+.p-menuitem-link:hover {
+  background-color: transparent !important;
+}
+
+.p-menuitem-text {
+  color: #ffffff !important;
+}
+
+.p-menuitem-text:hover {
+  color: #ffbe33 !important;
+}
+
+//Icon of a menuitem
+.p-menuitem-icon {
+  color: #ffffff !important;
+}
+
+header .p-button:hover {
+  background-color: #8d0303 !important;
+}
+
+header .p-button {
+  color: #000000;
+  border: none !important;
+  background-color: white !important;
+  transition: all .7s;
+}
+
+.p-menubar .p-menubar-button {
+  margin-left: 12px !important;
+}
+
+.p-menubar .p-menubar-button:hover {
+  background-color: #8d0303 !important;
+}
+
+.goldUser {
+  font-size: 17px;
+  color: #ffbe33;
+}
+
+/* End header Style*/
+/* Start carsoul Style*/
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background-color: white;
+  width: 18px !important;
+  height: 18px !important;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 50% !important;
+}
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: #ffbe33 !important;
+}
+
+.product-item[_ngcontent-ryd-c64] .product-item-content[_ngcontent-ryd-c64] {
+  text-align: left !important;
+}
+
+.p-carousel-indicators {
+  justify-content: left !important;
+}
+
+.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next {
+  //display: none;
+  color: #ffbe33 !important;
+  background: transparent;
+  border-radius: 50%;
+}
+
+.p-carousel .p-carousel-content .p-carousel-prev:enabled:hover, .p-carousel .p-carousel-content .p-carousel-next:enabled:hover {
+  color: white !important;
+  background: none !important;
+}
+
+.p-carousel .p-carousel-indicators {
+  justify-content: center !important;
+  align-content: end !important;
+}
+
+/* End carsoul Style*/
+/* Start Style @media screen*/
+@media screen and (max-width: 960px) {
+  .p-menubar .p-menubar-root-list {
+    background: #000000 !important;
+  }
+}
+
+/* End Style @media screen*/
+/* Start Style dataView*/
+.p-dataview .p-dataview-header {
+  background: white !important;
+  border: none !important;
+}
+
+
+.p-dataview-emptymessage {
+  text-align: center !important;
+  font-size: 30px;
+  width: 54%;
+  color: #000000;
+  margin: auto;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  padding: 20px;
+  animation-iteration-count: infinite;
+
+}
+
+.p-dataview-emptymessage::after {
+  content: "🍔🍖🍟";
+  display: block;
+}
+
+@keyframes example {
+  0% {
+    left: -50px;
+    top: 0px;
+  }
+  25% {
+    left: 50px;
+    top: 0px;
+  }
+  50% {
+    left: 50px;
+    top: 40px;
+  }
+  75% {
+    left: -50px;
+    top: 40px;
+  }
+  100% {
+    left: -50px;
+    top: 0px;
+  }
+
+}
+
+.grid-nogutter {
+  background-color: white;
+}
+
+.p-dataview .p-dataview-content {
+  //background: #000000!important;
+  color: #000000 !important;
+}
+
+.p-dropdown-items-wrapper {
+  max-height: inherit !important;
+}
+
+//start menu style
+.product-category-icon {
+  vertical-align: middle;
+  margin-right: .5rem;
+}
+
+.product-category {
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.product-grid-item {
+  margin: .5em;
+  border: 1px solid #dee2e6;
+
+  .product-grid-item-top, {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .product-grid-item-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20Px;
+    border-bottom: 4px solid #EEB703FF;
+  }
+
+  .p-image-preview-indicator {
+    height: 99%;
+    border-radius: 20Px;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+.card_two {
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.39);
+  box-shadow: 0 5px 1px rgba(2, 5, 7, 0), 0 20px 30px rgba(0, 0, 0, 0.23);
+  border-bottom: 5px solid black;
+  transition: all .8s;
+}
+
+a {
+
+  text-decoration: none;
+}
+
+.desc-length {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  //line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* End Style dataView*/
+
+
+/* Start Style of over lay*/
+.test {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.test img {
+  transition: all 1s !important;
+  border-radius: 10px;
+}
+
+.test:hover img {
+  transform: scale(1.2, 1.2);
+}
+
+.overlay {
+  width: 100% !important;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.66);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+
+.test:hover .overlay {
+  opacity: 1;
+}
+
+/* End Style overlay*/

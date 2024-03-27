@@ -1,0 +1,37 @@
+<section class="bg_section">
+  <div class="grid p-8">
+    <div class="
+xl:col-4
+ lg:col-6
+ md:col-8
+ sm:col-11
+ m-auto
+">
+
+      <div class="product-grid-item card_two"
+           style=" background-image: linear-gradient(to right, rgba(21, 14, 14, 0.16), rgba(0, 0, 0, 0.79));">
+        <div class="product-grid-item-top">
+          <div>
+            <i class="pi pi-tag product-category-icon"></i>
+            <span class="product-category">{{order.category.name}}</span>
+          </div>
+          <span [class]="'product-badge status-' + order.inventoryStatus">{{order.inventoryStatus}}</span>
+        </div>
+        <div class="product-grid-item-content text-center mt-2 p-3 ">
+          <p-image [alt]="order.name" [preview]="true" class="" src="assets/img/{{order.image}}.jpg"></p-image>
+
+          <div class="product-name mt-2">{{order.name}}</div>
+          <div class="product-description  mb-2">{{order.description}}</div>
+          <p-rating [cancel]="false" [ngModel]="order.rating" [readonly]="true" class=""></p-rating>
+        </div>
+        <div class="product-grid-item-bottom justify-content-between  mt-3">
+          <span class="product-price">${{order.price}}</span>
+          <p-button (click)="addToCart(order)" icon="pi pi-shopping-cart" label="Add To Card"></p-button>
+        </div>
+      </div>
+      <div class="flex justify-content-center">
+        <button (click)="handelBackPage()" class="mybtn " icon="pi pi-backward" label="Back to Menu" pButton></button>
+      </div>
+    </div>
+  </div>
+</section>

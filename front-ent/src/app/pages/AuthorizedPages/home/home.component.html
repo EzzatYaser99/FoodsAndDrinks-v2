@@ -1,0 +1,33 @@
+<section class="carsoul-bg px-3">
+  <p-carousel [autoplayInterval]="3000" [circular]="false" [numScroll]="1" [numVisible]="1"
+              [responsiveOptions]="responsiveOptions"
+              [value]="categories" class="" styleClass="custom-carousel">
+
+    <ng-template let-temp pTemplate="item">
+      <div class="product-item
+      flex py-6 px-5
+      xl:justify-content-start
+      lg:justify-content-start
+      md:justify-content-center
+       sm:justify-content-center">
+        <div class="product-item-content xl:w-4 lg:w-5 md:w-7 sm:w-9 ">
+          <div class="test">
+            <img class="product-image" src="assets/img/category/{{temp.image}}.jpg"/>
+            <div class="overlay"></div>
+          </div>
+          <div class="mt-4">
+            <h2>{{temp.name}}<i class="{{temp.logo}} ml-3"></i></h2>
+            <p class="text-white">
+              {{temp.description}}
+            </p>
+            <button (click)="showRestaurantMenu()" class="p-component p-element mt-2 " label="Read Our Menu"
+                    pButton>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</section>
+
+

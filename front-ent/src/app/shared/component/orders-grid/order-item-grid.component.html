@@ -1,0 +1,27 @@
+<div class="product-grid-item  card_two ">
+  <div class="product-grid-item-top">
+    <div>
+      <i class="pi pi-tag product-category-icon"></i>
+      <span class="product-category">{{data.category.name}}</span>
+    </div>
+    <span [class]="'product-badge status-' + data.inventoryStatus">{{data.inventoryStatus}}</span>
+  </div>
+  <div class="product-grid-item-content mt-2 p-2 text-center">
+    <p-image [alt]="data.name" [preview]="false" class="sm:h-full" src="assets/img/{{data.image}}.jpg"></p-image>
+    <div>
+      <div class="product-name">{{data.name}}</div>
+      <div class="product-description desc-length">{{data.description}}</div>
+      <p-rating [cancel]="false" [ngModel]="data.rating" [readonly]="true"></p-rating>
+
+      <div class="product-grid-item-bottom mt-3 ">
+
+        <span class="product-price p-2">${{data.price}}</span>
+        <p-button (click)="addToCard(data)" class="p-2" icon="pi pi-shopping-cart"></p-button>
+        <p-button class="p-2" icon="pi pi-eye " label="Perview"
+                  routerLink="details/{{data.id}}"></p-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
