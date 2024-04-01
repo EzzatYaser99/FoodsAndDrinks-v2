@@ -8,7 +8,7 @@ import {State} from "../../model/state";
   providedIn: 'root'
 })
 export class StateCountryService {
-  baseUrl = 'http://localhost:9090/api/';
+  baseUrl = 'http://localhost:7070/api/';
 
   constructor(private http: HttpClient) {
   }

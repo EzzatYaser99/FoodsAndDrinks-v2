@@ -19,7 +19,7 @@ public class OrderController {
     }
 
 
-    // http://localhost:9090/api/allOrders?page={value}&size={value}
+    // http://localhost:7070/api/allOrders?page={value}&size={value}
 
     @GetMapping("getAllOrders")
     public List<Order> allOrders() {
@@ -27,7 +27,7 @@ public class OrderController {
     }
 
 
-    // http://localhost:9090/api/category?key={value}
+    // http://localhost:7070/api/category?key={value}
 
     @GetMapping("category")
     public List<Order> getAllOrdersByCategoryName(@RequestParam String key) {
@@ -35,32 +35,32 @@ public class OrderController {
     }
 
 
-    // http://localhost:9090/api/orderkey?word=key&page={value}&size={value}
+    // http://localhost:7070/api/orderkey?word=key&page={value}&size={value}
     @GetMapping("orderkey")
     public List<Order> getOrderByKey(@RequestParam String word) {
         return this.orderService.getOrderByKey(word);
     }
 
-    // http://localhost:9090/api/order?id={value}
+    // http://localhost:7070/api/order?id={value}
     @GetMapping("order")
     public Order getOrderById(@RequestParam Long id) {
         return this.orderService.getOrder(id);
     }
 
-    // http://localhost:9090/api/orderSize
+    // http://localhost:7070/api/orderSize
     @GetMapping("orderSize")
     public Long OrderSize() {
         return orderService.getAllOrdersSize();
     }
 
-    // http://localhost:9090/api/categoryidsize?id={value}
+    // http://localhost:7070/api/categoryidsize?id={value}
     @GetMapping("categoryidsize")
     public Long getOrderByIdCategorySize(@RequestParam Long id) {
         return orderService.getOrdersByCategoryIdLength(id);
 
     }
 
-    // http://localhost:9090/api/keysize?key={value}
+    // http://localhost:7070/api/keysize?key={value}
     @GetMapping("keysize")
     public Long sizeOfOrderByKey(@RequestParam String key) {
         return orderService.getOrderSizeByKey(key);

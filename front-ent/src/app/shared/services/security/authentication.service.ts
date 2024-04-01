@@ -8,7 +8,7 @@ import {CookieService} from "ngx-cookie-service"
 })
 export class AuthenticationService {
 
-  private baseUrl = 'http://localhost:9090/api/';
+  private baseUrl = 'http://localhost:7070/api/';
 
   constructor(private http: HttpClient, private _cook: CookieService) {}
 

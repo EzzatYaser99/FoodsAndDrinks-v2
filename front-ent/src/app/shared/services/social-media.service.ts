@@ -9,7 +9,7 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class SocialMediaService {
 
-  private baseUrl = 'http://localhost:9090/social/';
+  private baseUrl = 'http://localhost:7070/social/';
 
   constructor(private http: HttpClient,
               private _cook: CookieService) {

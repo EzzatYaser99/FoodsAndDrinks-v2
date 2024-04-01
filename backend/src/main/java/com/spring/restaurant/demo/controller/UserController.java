@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-// http://localhost:9090/
+// http://localhost:7070/
 @RestController
 @CrossOrigin()
 @RequestMapping("/api")
@@ -37,14 +37,14 @@ public class UserController {
     }
 
 
-    // http://localhost:9090/api/signin
+    // http://localhost:7070/api/signin
     @PostMapping("/signin")
     public LoginResponse logIn(@RequestBody JwtLogin jwtLogin) {
         return tokenService.login(jwtLogin);
     }
 
 
-    // http://localhost:9090/api/signup
+    // http://localhost:7070/api/signup
     @PostMapping("/signup")
     public AccountResponse createUser(@RequestBody JwtLogin jwtLogin) {
         AccountResponse accountResponse = new AccountResponse();
@@ -70,7 +70,7 @@ public class UserController {
         return accountResponse;
     }
 
-    // http://localhost:9090/api/active
+    // http://localhost:7070/api/active
     @PostMapping("/active")
     public UserActive getActiveUser(@RequestBody JwtLogin jwtLogin) {
         String encryptedPassword = userService.getPasswordByEmail(jwtLogin.getEmail()); // from Db
@@ -94,7 +94,7 @@ public class UserController {
         return userActive;
     }
 
-    // http://localhost:9090/api/activated
+    // http://localhost:7070/api/activated
     @PostMapping("/activated")
     public AccountResponse activeAccount(@RequestBody ActiveAccount activeAccount) {
         User user = userService.getUserByEmail(activeAccount.getEmail());
@@ -109,7 +109,7 @@ public class UserController {
         return accountResponse;
     }
 
-    // http://localhost:9090/api/checkEmail
+    // http://localhost:7070/api/checkEmail
     @PostMapping("/checkEmail")
     public AccountResponse checkUserAndUpdateCode(@RequestBody AccountOperation accountOperation) {
         User user = this.userService.getUserByEmail(accountOperation.getEmail());
@@ -128,7 +128,7 @@ public class UserController {
         return accountResponse;
     }
 
-    // http://localhost:9090/api/resetPassword
+    // http://localhost:7070/api/resetPassword
     @PostMapping("/resetPassword")
     public AccountResponse resetPassword(@RequestBody ConfirmNewPassword newPassword){
         User user = this.userService.getUserByEmail(newPassword.getEmail());

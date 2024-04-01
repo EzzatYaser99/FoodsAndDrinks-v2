@@ -30,7 +30,7 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping ("/social")
 
-// http://localhost:9090/social
+// http://localhost:7070/social
 public class SocialController {
     private UserService userService;
     private AuthoritiesService authoritiesService;
@@ -45,7 +45,7 @@ public class SocialController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    //http://localhost:9090/social/facebook
+    //http://localhost:7070/social/facebook
     @PostMapping("/facebook")
     public LoginResponse loginWithFacebook(@RequestBody TokenDto tokenDto) {
         Facebook facebook = new FacebookTemplate(tokenDto.getToken());

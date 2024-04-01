@@ -24,7 +24,7 @@ public class CategoryController {
     }
 
 
-    // http://localhost:9090/api/allCategories
+    // http://localhost:7070/api/allCategories
     @GetMapping("allCategories")
 
     public List<Category> getAllCategory() {

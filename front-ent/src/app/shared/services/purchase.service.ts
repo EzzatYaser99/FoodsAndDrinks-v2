@@ -8,7 +8,7 @@ import {PurchaseRequest} from "../../model/purchase-request";
 })
 export class PurchaseService {
 
-  private baseUrl = 'http://localhost:9090/api/buy/purchase';
+  private baseUrl = 'http://localhost:7070/api/buy/purchase';
 
   constructor(private http: HttpClient) {
   }
