@@ -12,8 +12,4 @@ import javax.persistence.Table;
 @Table(name = "state")
 public class State extends PublicData {
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
 }
