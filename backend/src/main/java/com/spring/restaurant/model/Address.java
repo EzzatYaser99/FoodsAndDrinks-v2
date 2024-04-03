@@ -13,9 +13,6 @@ import javax.persistence.*;
 public class Address extends CategoryOrder {
 
 
-    @Column(name = "country")
-    private String country;
-
     @Column(name = "state")
     private String state;
 
