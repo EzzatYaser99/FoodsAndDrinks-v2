@@ -23,7 +23,7 @@ public class EmailServiceImpl implements EmailService {
     @Async
     public void sendCodeByMail(Mail mail) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom("azzat.yaser12@gmail.com");
+        simpleMailMessage.setFrom("restaurant.chef2022@gmail.com");
         simpleMailMessage.setTo(mail.getTo());
         simpleMailMessage.setSubject("Code Active");
         simpleMailMessage.setText(mail.getCode());
