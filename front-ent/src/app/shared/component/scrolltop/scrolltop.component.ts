@@ -2,9 +2,10 @@ import {Component, Input} from '@angular/core';
 import {ScrollInfo} from "./ScrollInfo";
 
 @Component({
-  selector: 'app-scrolltop',
-  templateUrl: './scrolltop.component.html',
-  styleUrls: ['./scrolltop.component.scss']
+    selector: 'app-scrolltop',
+    templateUrl: './scrolltop.component.html',
+    styleUrls: ['./scrolltop.component.scss'],
+    standalone: true
 })
 export class ScrolltopComponent {
 

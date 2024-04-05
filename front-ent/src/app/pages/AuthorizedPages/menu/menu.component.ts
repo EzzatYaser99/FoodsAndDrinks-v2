@@ -1,16 +1,26 @@
 import {Component, Input} from '@angular/core';
-import {PrimeNGConfig, SelectItem} from "primeng/api";
+import { PrimeNGConfig, SelectItem, SharedModule } from "primeng/api";
 import {CategoryService} from "../../../shared/services/category.service";
 import {Category} from "../../../model/category";
 import {Order} from "../../../model/order";
 import {OrderService} from "../../../shared/services/order.service";
 import {ActivatedRoute} from "@angular/router";
+import { OrderItemGridComponent } from '../../../shared/component/orders-grid/order-item-grid.component';
+import { OrderItemListComponent } from '../../../shared/component/orders-list/order-item-list.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import { DataViewModule } from 'primeng/dataview';
+import { SpinnerComponent } from '../../../shared/component/spinner/spinner.component';
+import { NgIf } from '@angular/common';
 
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'app-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss'],
+    standalone: true,
+    imports: [NgIf, SpinnerComponent, DataViewModule, SharedModule, DropdownModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent]
 })
 export class MenuComponent {
   sortSalaryOptions: any;

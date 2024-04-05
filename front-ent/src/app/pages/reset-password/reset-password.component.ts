@@ -1,13 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import {SpaceValidator} from "../../model/space-validator";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {Router} from "@angular/router";
+import { RippleModule } from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss']
+    selector: 'app-reset-password',
+    templateUrl: './reset-password.component.html',
+    styleUrls: ['./reset-password.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, NgIf, InputTextModule, ButtonModule, RippleModule]
 })
 export class ResetPasswordComponent implements OnInit {
 

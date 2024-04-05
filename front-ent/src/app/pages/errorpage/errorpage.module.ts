@@ -6,14 +6,12 @@ import {ButtonModule} from "primeng/button";
 
 
 @NgModule({
-  declarations: [
-    ErrorpageComponent
-  ],
-  imports: [
-    CommonModule,
-    ErrorpageRoutingModule,
-    ButtonModule
-  ]
+    imports: [
+        CommonModule,
+        ErrorpageRoutingModule,
+        ButtonModule,
+        ErrorpageComponent
+    ]
 })
 export class ErrorpageModule {
 }

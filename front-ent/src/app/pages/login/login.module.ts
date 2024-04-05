@@ -16,25 +16,20 @@ import {GoogleSigninButtonModule, SocialAuthService} from "@abacritt/angularx-so
 
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    LoginRoutingModule,
-    CheckboxModule,
-    ChipsModule,
-    ButtonModule,
-    RippleModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    // GoogleSigninButtonModule,
-
-  ],
-  providers: [AuthenticationService,SocialAuthService
-    , {provide:HTTP_INTERCEPTORS, useClass :HttpIntercepterBaseAuthService ,multi : true }
-
-  ],
+    imports: [
+        CommonModule,
+        LoginRoutingModule,
+        CheckboxModule,
+        ChipsModule,
+        ButtonModule,
+        RippleModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        LoginComponent,
+    ],
+    providers: [AuthenticationService, SocialAuthService,
+        { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBaseAuthService, multi: true }
+    ],
 })
 export class LoginModule {
 }

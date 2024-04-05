@@ -1,13 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import {SpaceValidator} from "../../model/space-validator";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {Router} from "@angular/router";
+import { RippleModule } from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
+import { NgIf } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-activation-code',
-  templateUrl: './activation-code.component.html',
-  styleUrls: ['./activation-code.component.scss']
+    selector: 'app-activation-code',
+    templateUrl: './activation-code.component.html',
+    styleUrls: ['./activation-code.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, InputTextModule, NgIf, ButtonModule, RippleModule]
 })
 export class ActivationCodeComponent implements OnInit {
 

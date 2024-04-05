@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import {StateCountryService} from "../../../shared/services/state-country.service";
 import {Country} from "../../../model/country";
 import {State} from "../../../model/state";
@@ -13,11 +13,18 @@ import {PurchaseRequest} from "../../../model/purchase-request";
 import {PurchaseService} from "../../../shared/services/purchase.service";
 import {Client} from "../../../model/client";
 import {Router} from "@angular/router";
+import { ButtonModule } from 'primeng/button';
+import { SharedModule } from 'primeng/api';
+import { DropdownModule } from 'primeng/dropdown';
+import { NgIf, CurrencyPipe } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-check-out',
-  templateUrl: './check-out.component.html',
-  styleUrls: ['./check-out.component.scss']
+    selector: 'app-check-out',
+    templateUrl: './check-out.component.html',
+    styleUrls: ['./check-out.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, InputTextModule, NgIf, DropdownModule, SharedModule, ButtonModule, CurrencyPipe]
 })
 export class CheckOutComponent implements OnInit {
   selectedFromCountry: any;

@@ -20,25 +20,23 @@ import {SharedModule} from "../../../shared/shared.module";
 
 
 @NgModule({
-  declarations: [
-    MenuComponent
-  ],
-  imports: [
-    DataViewModule,
-    PanelModule,
-    DialogModule,
-    DropdownModule,
-    InputTextModule,
-    ButtonModule,
-    RippleModule,
-    HttpClientModule,
-    RatingModule,
-    FormsModule, CommonModule, MenuRoutingModule, CarouselModule, ChipsModule, SharedModule
-  ],
-  exports: [
-    MenuComponent
-  ],
-  providers: [CategoryService, OrderService]
+    imports: [
+        DataViewModule,
+        PanelModule,
+        DialogModule,
+        DropdownModule,
+        InputTextModule,
+        ButtonModule,
+        RippleModule,
+        HttpClientModule,
+        RatingModule,
+        FormsModule, CommonModule, MenuRoutingModule, CarouselModule, ChipsModule, SharedModule,
+        MenuComponent
+    ],
+    exports: [
+        MenuComponent
+    ],
+    providers: [CategoryService, OrderService]
 })
 export class MenuModule {
 }

@@ -2,11 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {CartOrder} from "../../../model/cart-order";
 import {CartService} from "../../../shared/services/cart.service";
 import {Router} from "@angular/router";
+import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-purchases',
-  templateUrl: './purchases.component.html',
-  styleUrls: ['./purchases.component.scss']
+    selector: 'app-purchases',
+    templateUrl: './purchases.component.html',
+    styleUrls: ['./purchases.component.scss'],
+    standalone: true,
+    imports: [ButtonModule, NgIf, NgFor, CurrencyPipe]
 })
 export class PurchasesComponent implements OnInit {
 

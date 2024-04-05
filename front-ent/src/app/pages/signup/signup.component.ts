@@ -1,17 +1,23 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import {LoginUserInformationService} from "../../shared/services/login-user-information.service";
-import {Router} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {SpaceValidator} from "../../model/space-validator";
+import { RippleModule } from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
+import { NgIf } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+    selector: 'app-signup',
+    templateUrl: './signup.component.html',
+    styleUrls: ['./signup.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule]
 })
 export class SignupComponent implements OnInit {
   signupForm: any;

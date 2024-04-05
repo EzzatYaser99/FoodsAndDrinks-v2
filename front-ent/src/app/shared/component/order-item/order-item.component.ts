@@ -4,11 +4,17 @@ import {OrderService} from "../../services/order.service";
 import {Order} from "../../../model/order";
 import {CartOrder} from "../../../model/cart-order";
 import {CartService} from "../../services/cart.service";
+import { ButtonModule } from 'primeng/button';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RatingModule } from 'primeng/rating';
+import { ImageModule } from 'primeng/image';
 
 @Component({
-  selector: 'app-order-item',
-  templateUrl: './order-item.component.html',
-  styleUrls: ['./order-item.component.scss']
+    selector: 'app-order-item',
+    templateUrl: './order-item.component.html',
+    styleUrls: ['./order-item.component.scss'],
+    standalone: true,
+    imports: [ImageModule, RatingModule, ReactiveFormsModule, FormsModule, ButtonModule]
 })
 export class OrderItemComponent implements OnInit {
   // @ts-ignore

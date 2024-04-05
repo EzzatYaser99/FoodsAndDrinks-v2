@@ -13,24 +13,21 @@ import {MenuModule} from "../AuthorizedPages/menu/menu.module";
 import {HttpIntercepterBaseAuthService} from "../../shared/services/security/http-intercepter-base-auth.service";
 
 @NgModule({
-  declarations: [
-    MainComponent,
-  ],
-  exports: [
-    MainComponent
-  ],
-  imports: [
-    CommonModule,
-    MainRoutingModule,
-    ButtonModule,
-    CommonModule,
-    InputTextModule,
-    CarouselModule,
-    HttpClientModule,
-    SharedModule,
-    MenuModule
-  ]
-
+    exports: [
+        MainComponent
+    ],
+    imports: [
+        CommonModule,
+        MainRoutingModule,
+        ButtonModule,
+        CommonModule,
+        InputTextModule,
+        CarouselModule,
+        HttpClientModule,
+        SharedModule,
+        MenuModule,
+        MainComponent
+    ]
 })
 export class MainModule {
 }

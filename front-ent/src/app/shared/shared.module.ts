@@ -25,35 +25,33 @@ import {AuthenticationService} from "./services/security/authentication.service"
 
 
 @NgModule({
-  declarations: [
-    SpinnerComponent,
-    ScrolltopComponent,
-    FooterComponent,
-    HeaderComponent,
-    OrderItemGridComponent,
-    OrderItemListComponent,
-    OrderItemComponent,
-    CartStatusComponent
-  ],
-  imports: [
-    CommonModule,
-    MenubarModule,
-    ButtonModule,
-    RatingModule,
-    FormsModule,
-    BadgeModule,
-    ImageModule,
-    AnimateModule,
-  ], exports: [
-    HeaderComponent,
-    SpinnerComponent,
-    ScrolltopComponent,
-    FooterComponent,
-    OrderItemGridComponent,
-    OrderItemListComponent,
-    OrderItemComponent,
-    // CartStatusComponent
-  ], providers: [CategoryService, OrderService, StateCountryService, PurchaseService]
+    imports: [
+        CommonModule,
+        MenubarModule,
+        ButtonModule,
+        RatingModule,
+        FormsModule,
+        BadgeModule,
+        ImageModule,
+        AnimateModule,
+        SpinnerComponent,
+        ScrolltopComponent,
+        FooterComponent,
+        HeaderComponent,
+        OrderItemGridComponent,
+        OrderItemListComponent,
+        OrderItemComponent,
+        CartStatusComponent,
+    ], exports: [
+        HeaderComponent,
+        SpinnerComponent,
+        ScrolltopComponent,
+        FooterComponent,
+        OrderItemGridComponent,
+        OrderItemListComponent,
+        OrderItemComponent,
+        // CartStatusComponent
+    ], providers: [CategoryService, OrderService, StateCountryService, PurchaseService]
 })
 export class SharedModule {
 }

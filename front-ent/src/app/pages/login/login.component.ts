@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginUserInformationService} from "../../shared/services/login-user-information.service";
-import {Router} from "@angular/router";
-import {FormBuilder, Validators} from "@angular/forms";
+import { Router, RouterLink } from "@angular/router";
+import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {
@@ -10,12 +10,19 @@ import {
 
 } from "@abacritt/angularx-social-login";
 import {SocialMediaService} from "../../shared/services/social-media.service";
+import { RippleModule } from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { NgIf } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, CheckboxModule, ButtonModule, RippleModule]
 })
 export class LoginComponent implements OnInit {
 
