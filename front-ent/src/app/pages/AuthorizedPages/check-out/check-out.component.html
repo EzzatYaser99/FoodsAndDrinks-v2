@@ -2,18 +2,18 @@
   <form (ngSubmit)="done()" [formGroup]="checkoutParentGroup"
         class="formgrid col-9 m-auto mb-6  pb-0 py-5  ">
     <!--start Dev one-->
-    <div class=" grid md:px-8 m-auto">
+    <div class="row px-md-5 m-auto">
       <div class="col-12  m-auto text-center"><h2>Your Data</h2>
       </div>
       <div class="col-12 m-auto">
         <div class="p-inputgroup">
           <span [class.border-green-800]="!checkoutParentGroup.controls['FullName'].errors"
                 [class.border-red-700]="checkoutParentGroup.controls['FullName'].errors"
-                class="p-inputgroup-addon border-2"><i class="pi pi-user"></i></span>
+                class="p-inputgroup-addon border border-2"><i class="pi pi-user"></i></span>
           <input
             [class.border-green-800]="!checkoutParentGroup.controls['FullName'].errors"
             [class.ng-dirty]="checkoutParentGroup.controls['FullName'].errors"
-            class="ng-invalid border-2" formControlName="FullName" pInputText placeholder="Username" type="text">
+            class="ng-invalid border border-2" formControlName="FullName" pInputText placeholder="Username" type="text">
         </div>
       </div>
       <div *ngIf="checkoutParentGroup.controls['FullName'].errors" class="text-red-500 my-2 font-medium text-xl">
@@ -31,11 +31,11 @@
         <div class="p-inputgroup">
           <input [class.border-green-600]="!checkoutParentGroup.controls['Email'].errors"
                  [class.ng-dirty]="checkoutParentGroup.controls['Email'].errors"
-                 class="ng-invalid border-2" formControlName="Email" pInputText
+                 class="ng-invalid border border-2" formControlName="Email" pInputText
                  placeholder="User Name" type="text">
           <span [class.border-green-800]="!checkoutParentGroup.controls['Email'].errors"
                 [class.border-red-700]="checkoutParentGroup.controls['Email'].errors"
-                class="p-inputgroup-addon border-2 ">&#64;</span>
+                class="p-inputgroup-addon border border-2 ">&#64;</span>
         </div>
       </div>
       <div *ngIf="checkoutParentGroup.controls['Email'].errors" class="text-red-500 my-2 font-medium text-xl">
@@ -57,10 +57,10 @@
         <div class="p-inputgroup">
           <span [class.border-green-800]="!checkoutParentGroup.controls['Phone'].errors"
                 [class.border-red-700]="checkoutParentGroup.controls['Phone'].errors"
-                class="p-inputgroup-addon border-2"><i class="pi pi-phone"></i></span>
+                class="p-inputgroup-addon border border-2"><i class="pi pi-phone"></i></span>
           <input [class.border-green-800]="!checkoutParentGroup.controls['Phone'].errors"
                  [class.ng-dirty]="checkoutParentGroup.controls['Phone'].errors"
-                 class="ng-invalid border-2"
+                 class="ng-invalid border border-2"
 
                  formControlName="Phone" pInputText placeholder="Phone" type="text">
         </div>
@@ -87,14 +87,14 @@
     </div>
     <!--          End Dev one-->
     <!--    start Dev two From Person-->
-<!--    <div class=" grid  m-auto text-center" formGroupName="From">-->
+<!--    <div class="row  m-auto text-center" formGroupName="From">-->
 <!--      <div class="col-12 m-auto "><h2>From :</h2></div>-->
-<!--      <div class="col-8 m-auto grid ">-->
-<!--        <div class="  lg:col-6 col-12 m-auto ">-->
+<!--      <div class="col-8 m-auto row ">-->
+<!--        <div class="col-lg-6 col-12 m-auto ">-->
 <!--          <p-dropdown (onChange)="filterStates($event)" [(ngModel)]="selectedFromCountry" [filter]="true"-->
 <!--                      [options]="countries"-->
 <!--                      [showClear]="true" [virtualScrollItemSize]="30" [virtualScroll]="true"-->
-<!--                      class="w-full" filterBy="name" formControlName="Country" ngModelOptions="{standalone: true}"-->
+<!--                      class="w-100" filterBy="name" formControlName="Country" ngModelOptions="{standalone: true}"-->
 <!--                      optionLabel="name" placeholder="Select a Country">-->
 <!--            <ng-template class="col-12" pTemplate="selectedItem">-->
 <!--              <div *ngIf="selectedFromCountry" class="country-item country-item-value">-->
@@ -108,7 +108,7 @@
 <!--            </ng-template>-->
 <!--          </p-dropdown>-->
 <!--        </div>-->
-<!--        <div class="  lg:col-6 col-12  m-auto">-->
+<!--        <div class="col-lg-6 col-12  m-auto">-->
 <!--          <p-dropdown [(ngModel)]="selectedFromState"-->
 <!--                      [filter]="true" [options]="FromStates" [showClear]="true"-->
 <!--                      [virtualScrollItemSize]="30" [virtualScroll]="true" filterBy="name" formControlName="State"-->
@@ -126,7 +126,7 @@
 <!--          </p-dropdown>-->
 <!--        </div>-->
 <!--      </div>-->
-<!--      <div class="xl:col-7 lg:col-5 sm:col-8 col-12 m-auto">-->
+<!--      <div class="col-xl-7 col-lg-5 col-sm-8 col-12 m-auto">-->
 <!--        <div class="p-inputgroup ">-->
 <!--          <span class="p-inputgroup-addon">Zip Code</span>-->
 <!--          <input formControlName="ZipCode" pInputText placeholder="" type="text">-->
@@ -135,16 +135,16 @@
 <!--    </div>-->
 <!--    &lt;!&ndash;End Dev two From Person&ndash;&gt;-->
 <!--    &lt;!&ndash;start Dev similar&ndash;&gt;-->
-<!--    <div class="grid text-center flex justify-content-center align-items-center m-auto">-->
+<!--    <div class="row text-center flex justify-content-center align-items-center m-auto">-->
 <!--      <input (change)="similarGroup($event)" class="p-checkbox" type="checkbox">-->
 <!--      <label class="m-2">Similar</label>-->
 <!--    </div>-->
     <!--End Dev similar-->
     <!--start Dev three To Person-->
-    <div class="grid  m-auto text-center" formGroupName="To">
+    <div class="row  m-auto text-center" formGroupName="To">
       <div class="col-12 m-auto "><h2>To:</h2></div>
-      <div class="col-8 m-auto grid ">
-        <div class=" lg:col-6 col-12 m-auto ">
+      <div class="col-8 m-auto row ">
+        <div class="col-lg-6 col-12 m-auto ">
           <p-dropdown (onChange)="filterStates($event)" [(ngModel)]="selectedToCountry" [filter]="true"
                       [options]="countries" [showClear]="true"
                       [virtualScrollItemSize]="30" [virtualScroll]="true" filterBy="name" formControlName="Country"
@@ -161,7 +161,7 @@
             </ng-template>
           </p-dropdown>
         </div>
-        <div class=" lg:col-6 col-12 m-auto ">
+        <div class="col-lg-6 col-12 m-auto ">
           <p-dropdown [(ngModel)]="selectedToState" [filter]="true" [options]="ToStates" [showClear]="true"
                       [virtualScrollItemSize]="30" [virtualScroll]="true" filterBy="name" formControlName="State"
                       optionLabel="name" placeholder="Select a State">
@@ -178,7 +178,7 @@
           </p-dropdown>
         </div>
       </div>
-      <div class=" xl:col-7 lg:col-5 sm:col-8 col-12 m-auto">
+      <div class="col-xl-7 col-lg-5 col-sm-8 col-12 m-auto">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">Zip Code</span>
           <input formControlName="ZipCode" pInputText placeholder="" type="text">
@@ -187,7 +187,7 @@
     </div>
     <!--End Dev three-->
     <!--start Dev four-->
-    <div class=" grid md:px-8  m-auto text-center" formGroupName="CreditCard">
+    <div class="row px-md-8  m-auto text-center" formGroupName="CreditCard">
       <div class="col-12 m-auto text-center"><h2>Card Type :</h2></div>
 
       <div class="col-12 ">
@@ -196,7 +196,7 @@
                     placeholder="Select a City"></p-dropdown>
       </div>
 
-      <div class=" xl:col-6 lg:col-6 sm:col-8 col-12 m-auto ">
+      <div class="col-xl-6 col-lg-6 col-sm-8 col-12 m-auto ">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">Card Number</span>
           <input formControlName="CardNumber" pInputText placeholder="" type="text">
@@ -204,7 +204,7 @@
         </div>
       </div>
 
-      <div class="  xl:col-6 lg:col-6 sm:col-8 col-12 m-auto  ">
+      <div class="col-xl-6 col-lg-6 col-sm-8 col-12 m-auto  ">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-code"></i></span>
           <input formControlName="Code" pInputText placeholder="Code" type="text">
@@ -213,11 +213,11 @@
     </div>
     <!--End Dev four-->
     <!--    start Dev five-->
-    <div class="m-auto sm:col-5  col-7 ">
+    <div class="m-auto col-sm-5  col-7 ">
       <div class="size m-2 ">Total Order : {{totalOrderSize}}</div>
       <div class="totalprice  m-2 ">Total Price : {{totalOrderPrice|currency:'USD'}}</div>
       <div class="text-center">
-        <button class="p-button-info m-auto " icon=" pi pi-check" label="Done" pButton type="submit"></button>
+        <button class="p-button-info m-auto " icon="pi pi-check" label="Done" pButton type="submit"></button>
       </div>
     </div>
     <!--End Dev five-->

@@ -2,13 +2,13 @@
   <header class="p-1">
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
-        <img alt="" class="logoimage border-circle mt-2 cursor-pointer" routerLink="/main"
+        <img alt="" class="logoimage border border-circle mt-2 cursor-pointer" routerLink="/main"
              src="../../../../assets/img/profile-img.jpg">
       </ng-template>
       <ng-template pTemplate="end">
-        <div class="flex align-items-center">
+        <div class="d-flex align-items-center">
           <app-cart-status></app-cart-status>
-          <i class=" pi pi-user mx-2 goldUser"></i>
+          <i class="pi pi-user mx-2 goldUser"></i>
 
           <span class="mx-2 text-white">{{_loginInfo.username}}</span>
           <button (click)="handeLogOutUser()" class="p-inputtext p-component p-element" icon="pi pi-power-off" pButton
