@@ -12,7 +12,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { DataViewModule } from 'primeng/dataview';
 import { SpinnerComponent } from '../../../shared/component/spinner/spinner.component';
-import { NgIf } from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 
 
 @Component({
@@ -20,7 +20,7 @@ import { NgIf } from '@angular/common';
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.scss'],
     standalone: true,
-    imports: [NgIf, SpinnerComponent, DataViewModule, SharedModule, DropdownModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent]
+  imports: [NgIf, SpinnerComponent, DataViewModule, SharedModule, DropdownModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent, NgForOf]
 })
 export class MenuComponent {
   sortSalaryOptions: any;

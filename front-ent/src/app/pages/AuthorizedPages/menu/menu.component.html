@@ -30,14 +30,14 @@
         <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
       </div>
     </ng-template>
-    <ng-template let-product pTemplate="listItem">
+    <ng-template let-product pTemplate="list" let-orders>
       <div class="col-12">
-        <app-orders-list [data]="product"></app-orders-list>
+        <app-orders-list *ngFor="let product of orders" [data]="product"></app-orders-list>
       </div>
     </ng-template>
-    <ng-template let-product pTemplate="gridItem">
+    <ng-template let-product pTemplate="grid" let-orders>
       <div class="xl:col-3 lg:col-4 sm:px-8 md:col-6 md:px-1 xl:p-2 px-5 ">
-        <app-orders-grid [data]="product"></app-orders-grid>
+        <app-orders-grid *ngFor="let product of orders"  [data]="product"></app-orders-grid>
       </div>
     </ng-template>
   </p-dataView>
