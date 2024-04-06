@@ -3,7 +3,7 @@
 
     <div class="row">
       <div
-        class="col-12  check-out w-xl-75 w-md-75 w-sm-12  text-sm-xl m-autod-flex justify-content-between p-3 align-items-center align-content-center">
+        class="col-12  check-out w-75 w-75 w-12  text-sm-xl m-autod-flex justify-content-between p-3 align-items-center align-content-center">
         <div class="size">Total Order : {{orderSize}}</div>
         <div class="totalprice">Total Price : {{orderPrice|currency:'USD'}}</div>
         <button (click)="goToCheckOut()" [disabled]="orders.length==0" class="p-button-info" icon="pi pi-check"
@@ -13,7 +13,7 @@
     </div>
 
     <div *ngIf="orders.length==0" class="row mt-8 ">
-      <div class="p-dataview-emptymessage col-12  w-xl-75 w-md-75 w-sm-12 s  m-auto text-black-alpha-90 ">
+      <div class="p-dataview-emptymessage col-12  w-75 w-75 w-12 s  m-auto text-black-alpha-90 ">
         No Order Selected
       </div>
     </div>
