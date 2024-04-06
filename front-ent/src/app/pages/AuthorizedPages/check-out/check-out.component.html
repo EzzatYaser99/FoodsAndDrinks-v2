@@ -16,7 +16,7 @@
             class="ng-invalid border border-2" formControlName="FullName" pInputText placeholder="Username" type="text">
         </div>
       </div>
-      <div *ngIf="checkoutParentGroup.controls['FullName'].errors" class="text-red-500 my-2 font-medium text-xl">
+      <div *ngIf="checkoutParentGroup.controls['FullName'].errors" class="text-danger my-2 font-medium text-xl">
         <small
           *ngIf="checkoutParentGroup.controls['FullName'].hasError('required') || checkoutParentGroup.controls['FullName'].hasError('noSpace')"
           class="p-3"> * Name Is Reqiured *</small>
@@ -38,7 +38,7 @@
                 class="p-inputgroup-addon border border-2 ">&#64;</span>
         </div>
       </div>
-      <div *ngIf="checkoutParentGroup.controls['Email'].errors" class="text-red-500 my-2 font-medium text-xl">
+      <div *ngIf="checkoutParentGroup.controls['Email'].errors" class="text-danger my-2 font-medium text-xl">
         <small
           *ngIf="checkoutParentGroup.controls['Email'].hasError('required') || checkoutParentGroup.controls['Email'].hasError('noSpace')"
           class="p-3"> * Requierd Email
@@ -65,7 +65,7 @@
                  formControlName="Phone" pInputText placeholder="Phone" type="text">
         </div>
       </div>
-      <div *ngIf="checkoutParentGroup.controls['Phone'].errors" class="text-red-500 my-2 font-medium text-xl">
+      <div *ngIf="checkoutParentGroup.controls['Phone'].errors" class="text-danger my-2 font-medium text-xl">
         <small
           *ngIf="checkoutParentGroup.controls['Phone'].hasError('required') || checkoutParentGroup.controls['Phone'].hasError('noSpace')"
           class="p-3">* Requierd Phone

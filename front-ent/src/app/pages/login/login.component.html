@@ -15,7 +15,7 @@
                  src="../../../assets/img/profile-img.jpg">
             <div class="text-white text-3xl font-medium mb-3">Welcome Back</div>
             <span class="text-white font-medium line-height-3">Don't have an account?</span>
-            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" routerLink="/signup"
+            <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/signup"
             >Create today!</a>
 
           </div>
@@ -28,7 +28,7 @@
                    id="email1" pInputText
                    placeholder="Example@gmail.com"
                    type="email">
-            <div *ngIf="loginForm.controls['Email'].errors" class="text-red-500 my-2 font-medium text-xl">
+            <div *ngIf="loginForm.controls['Email'].errors" class="text-danger my-2 font-medium text-xl">
               <small *ngIf="loginForm.controls['Email'].hasError('required')" class="p-3">requierd email</small>
               <small
                 *ngIf="loginForm.controls['Email'].hasError('email')&& !loginForm.controls['Email']. hasError('minlength')"
@@ -43,7 +43,7 @@
                    pInputText placeholder="Password" type="password">
 
 
-            <div *ngIf="loginForm.controls['Password'].errors" class="text-red-500 my-2 font-medium text-xl">
+            <div *ngIf="loginForm.controls['Password'].errors" class="text-danger my-2 font-medium text-xl">
               <small *ngIf="loginForm.controls['Password'].hasError('required')" class="p-3">requierd password</small>
               <small *ngIf="loginForm.controls['Password'].hasError('minlength')" class="p-3">min length is 5
                 Character</small>
@@ -54,7 +54,7 @@
                 <p-checkbox [binary]="true" id="rememberme1" styleClass="mr-2"></p-checkbox>
                 <label class="text-white" for="rememberme1">Remember me</label>
               </div>
-              <a routerLink="reset" class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot
+              <a routerLink="reset" class="font-medium no-underline ml-2 text-primary text-right cursor-pointer">Forgot
                 password?</a>
             </div>
 
