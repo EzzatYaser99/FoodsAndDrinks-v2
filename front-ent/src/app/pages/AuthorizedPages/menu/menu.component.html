@@ -7,13 +7,13 @@
   <p-dataView #dv [paginator]="true" [rows]="12" [sortField]="sortField" [sortOrder]="sortOrder"
               [value]="orders" class="" layout="grid">
     <ng-template pTemplate="header">
-      <div class="d-flex flex-column d-md-flex-row  justify-content-md-between px-5 py-2">
+      <div class="d-flex flex-column flex-md-row  justify-content-md-between px-5 py-2">
         <p-dropdown
           (onChange)="onSortChange($event)"
           [(ngModel)]="sortKey"
           [options]="sortSalaryOptions"
           placeholder="Sort By Price"
-          styleClass="mb-2 md-mb-0">
+          styleClass="mb-2 mb-md-0">
         </p-dropdown>
 
         <p-dropdown (onChange)="filterCategory($event)"
@@ -31,13 +31,17 @@
       </div>
     </ng-template>
     <ng-template let-product pTemplate="list" let-orders>
-      <div class="col-12">
-        <app-orders-list *ngFor="let product of orders" [data]="product"></app-orders-list>
+      <div class="row grid-nogutter">
+      <div *ngFor="let product of orders" class="col-12">
+        <app-orders-list [data]="product"></app-orders-list>
+      </div>
       </div>
     </ng-template>
     <ng-template let-product pTemplate="grid" let-orders>
-      <div class="col-xl-3 col-lg-4 p-x-sm-8 col-md-6 px-md-1 p-xl-2 px-5 ">
-        <app-orders-grid *ngFor="let product of orders"  [data]="product"></app-orders-grid>
+      <div class="row grid-nogutter">
+      <div *ngFor="let product of orders" class="col-xl-3 col-lg-3 px-sm-5 col-md-6 px-md-1 p-xl-2 px-5 " >
+        <app-orders-grid  [data]="product"></app-orders-grid>
+      </div>
       </div>
     </ng-template>
   </p-dataView>
