@@ -6,7 +6,7 @@
           <div class="contentOne">
             <h2>Contact Us</h2>
             <ul>
-              <li *ngFor="let item of footerContactDetails">
+              <li *ngFor="let item of contactDetailsInformation">
                 <a [href]="item.contactDetailsHerf" target="_blank">
                   <i class="{{item.contactDetailsIcon}} mr-2"></i>
                   {{item.contactDetailsCommand}}</a>
@@ -19,8 +19,8 @@
             <h2><a href="#">Feane</a></h2>
             <p class="md:ml-4 md:mr-5 sm:ml-6 ">Necessary, making this the first true generator
               on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
-            <div *ngIf="footerSocialData" class="socialMedia">
-              <a *ngFor="let item of footerSocialData" [href]="item.contactDetailsHerf" [title]="item.title"
+            <div *ngIf="socialMediaInformation" class="socialMedia">
+              <a *ngFor="let item of socialMediaInformation" [href]="item.contactDetailsHerf" [title]="item.title"
                  class="zoomin"
                  target="_blank">
                 <i *ngIf="item.socialMediaIcon" class="{{item.socialMediaIcon}}"></i></a>
@@ -31,7 +31,7 @@
           <div class="contentOne">
             <h2>Opening Days</h2>
             <ul>
-              <li *ngFor="let item of footerOpenDays">{{item.openDays}}</li>
+              <li *ngFor="let item of openDaysInformation">{{item.openDays}}</li>
             </ul>
           </div>
         </div>
