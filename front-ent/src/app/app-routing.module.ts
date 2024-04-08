@@ -7,15 +7,15 @@ import {SignupComponent} from "./pages/signup/signup.component";
 
 const routes: Routes = [
   {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
-    // ,canActivate:[LoginActivatedGuard]
+    ,canActivate:[LoginActivatedGuard]
   },
 
   {path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule)
-    // ,canActivate:[LoginActivatedGuard]
+    ,canActivate:[LoginActivatedGuard]
   },
 
   {path: 'main', loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
-    // , canActivate: [CanActivatedPagesGuard]
+    , canActivate: [CanActivatedPagesGuard]
   },
 
   {path: '**', redirectTo: 'login'},
