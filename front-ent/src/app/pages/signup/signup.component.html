@@ -1,51 +1,79 @@
 <section class="signUpSection p-sm-5 p-4 py-5">
 
-  <form (ngSubmit)="done()" [formGroup]="signupForm" >
+  <form [formGroup]="signupForm">
 
     <div class="d-flex pt-5 justify-content-center">
-      <div class="surface-card p-4 shadow-2 border border-round w-100 signForm">
-        <div class="text-center mb-5">
-          <img alt="Image" class="scalein animation-duration-500 mb-3 border rounded-circle" height="80"
-               src="../../../assets/img/users.jpg">
-          <div class="text-3xl font-medium mb-3">Welcome</div>
-          <span class="text-600 font-medium line-height-3">If you have an account?</span>
+      <div style="width: 40%" class="surface-card p-4 shadow-2 border border-round  signForm">
+        <div class="text-center mb-2">
+          <img alt="Image" class="mb-3 border rounded-circle" height="80"
+               src="../../../assets/img/profile-img.jpg">
+          <div class="text-3xl font-medium ">Sign Up</div>
+          <span class="text-600 font-medium ">If you have an account?</span>
           <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/login">Sign In!</a>
         </div>
+        <div class="row">
+          <div class="col-6 col-sm-10 m-auto">
+            <label for="userName">User Name</label>
+            <p-inputGroup>
+              <input [required]="true" style="padding: 5px"
+                     formControlName="UserName" id="userName" pInputText
+                     placeholder=""/>
+            </p-inputGroup>
+          </div>
+          <div class="col-6 col-sm-10 m-auto mt-2">
+            <label for="email1">Mobile</label>
+            <p-inputGroup>
+              <input style="padding: 5px"
+                     (change)="onChangeMobileNumber($event)"
+                     [(ngModel)]="this.userMobilePhone"
+                     [style.border-left-color]="(this.validMobilePhone)?'green':''"
+                     [pTooltip]="mobileNumberValidation"
+                     [required]="true"
+                     [pattern]="regexForMobNum"
+                      id="mobile1" pInputText
+                     type="tel" placeholder=""
+                     tooltipPosition="bottom"
+                     [appendTo]="'body'"
+                     [ngModelOptions]="{standalone: true}">
+            </p-inputGroup>
+          </div>
+          <div class="col-6 col-sm-10 m-auto mt-2">
+            <label for="email1">Email</label>
+            <p-inputGroup>
+              <input style="padding: 5px"
+                     [required]="true"
+                    formControlName="Email" id="email1" pInputText
+                     type="text" placeholder="">
+            </p-inputGroup>
 
-        <label for="email1">Email</label>
-
-        <div class="p-inputgroup m-auto  mb-2 mt-1">
-          <span class="p-inputgroup-addon border border-2">&#64;</span>
-        <input [class.border-green-600]="!signupForm.controls['Email'].errors"
-               [class.ng-dirty]="signupForm.controls['Email'].errors"  class="w-100  d-block text-900 font-medium " formControlName="Email" id="email1" pInputText
-               type="text" placeholder="Example@gmail.com">
+          </div>
+          <div class="col-6 col-sm-10 m-auto mt-2">
+            <label>Gender</label>
+            <div class="form-check" *ngFor="let item of genderList ">
+                <input class="form-check-input" type="radio" name="item"
+                       (change)="onChangeGenderType(item.name)">
+                <label [for]="item.value" class="ml-2">{{ item.name }}</label>
+            </div>
+          </div>
+          <div class="col-6 col-sm-10 m-auto mt-2">
+            <label for="password1" class="d-block">Password</label>
+            <p-password class="" [required]="true" formControlName="Password"
+                        id="password1"></p-password>
+          </div>
+          <div class="col-6 col-sm-10 m-auto mt-2">
+            <label class="d-block" for="confirmPassword1">Confirm Password</label>
+            <p-password class="" [required]="true" formControlName="ConfirmPassword"
+                        id="confirmPassword1"></p-password>
+          </div>
         </div>
-        <div *ngIf="signupForm.controls['Email'].errors" class="text-danger my-2 font-medium text-xl">
-          <small *ngIf="signupForm.controls['Email'].hasError('required')" class="p-3">requierd email</small>
-          <small
-            *ngIf="signupForm.controls['Email'].hasError('email')&& !signupForm.controls['Email']. hasError('minlength')"
-            class="p-3">Invalid Email</small>
-        </div>
-
-
-        <label class="d-block text-900 font-medium mb-2" for="password1">Password</label>
-        <div class="p-inputgroup  mb-2 mt-1">
-          <span class="p-inputgroup-addon border border-2"><i class="fas fa-solid fa-lock"></i></span>
-        <input [class.border-green-600]="!signupForm.controls['Password'].errors"
-               [class.ng-dirty]="signupForm.controls['Password'].errors" class="w-100" formControlName="Password" id="password1" pInputText placeholder="Password"
-               type="password">
-        </div>
-        <div *ngIf="signupForm.controls['Password'].errors" class="text-danger my-2 font-medium text-xl">
-          <small *ngIf="signupForm.controls['Password'].hasError('required')" class="p-3">requierd password</small>
-          <small *ngIf="signupForm.controls['Password'].hasError('minlength')" class="p-3">min length is 5
-            Character To create Password</small>
+        <div class="d-flex justify-content-end mt-3">
+          <button pButton class="btn btn-cancel px-3 w-30 mx-3" label="Cancel"
+                  (click)="Cancel()"></button>
+          <button pButton class="btn btn-primary px-3 w-30" label="Submit"
+                  icon="pi pi-check " [loading]="isLoading" (click)="done()"></button>
 
         </div>
-
-        <button class="w-100" icon="pi pi-user" label="Done" pButton pRipple type="submit"></button>
       </div>
     </div>
-
-    <!--    </div>-->
   </form>
 </section>
