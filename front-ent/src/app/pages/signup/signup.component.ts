@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators, ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {LoginUserInformationService} from "../../shared/services/login-user-information.service";
 import {Router, RouterLink} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {SpaceValidator} from "../../model/space-validator";
@@ -17,6 +17,7 @@ import {PasswordModule} from "primeng/password";
 import {TooltipModule} from 'primeng/tooltip';
 import Swal, {SweetAlertOptions} from 'sweetalert2'
 import {CheckboxModule} from "primeng/checkbox";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-signup',
@@ -96,27 +97,42 @@ export class SignupComponent implements OnInit {
       this.isLoading = false;
       return;
     }
-    this.authService.createUser(
-      this.signupForm.controls['Email'].value, this.signupForm.controls['Password'].value)
-      .subscribe({
-        next: response => {
-          // alert(this.signupForm.controls['Email'].value)
-          // alert(this.signupForm.controls['Password'].value)
-          if (response.result == 1) {
-            sessionStorage.setItem('account', this.signupForm.controls['Email'].value);
-            this._router.navigate(['signup/active']);
-          } else {
-            this.isLoading = false;
-            alert('Email is Exist');
-          }
+    ;
+    // @ts-ignore
+    let user = new User();
+    user.name = this.signupForm.controls['UserName'].value;
+    user.mobilePhone = this.userMobilePhone;
+    user.email = this.signupForm.controls['Email'].value;
+    user.gender = this.selectedGenderType;
+    user.password = this.signupForm.controls['Password'].value;
+    user.acceptPolicy = this.acceptedTermsOfUseAndPrivacyPolicy;
+    let userBody: any = JSON.stringify(user)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
 
-        }, error: error => {
-          this.isLoading = false
-          alert("Email or Password is invaild")
+    this.authService.createUser(userBody,httpOptions)
+                  .subscribe({
+                    next: response => {
+                      // alert(this.signupForm.controls['Email'].value)
+                      // alert(this.signupForm.controls['Password'].value)
+                      if (response.result == 1) {
+                        sessionStorage.setItem('account', user.email);
+                        this._router.navigate(['signup/active']);
+                      } else {
+                        this.isLoading = false;
+                        alert('Email is Exist');
+                      }
 
-        }
+                    }, error: error => {
+                      this.isLoading = false
+                      alert("Email or Password is invaild")
 
-      });
+                    }
+
+                  });
 
     setTimeout(() => {
       this.isLoading = false
@@ -146,6 +162,8 @@ export class SignupComponent implements OnInit {
 
 
   onChangeAcceptedTermsOfUseAndPrivacyPolicy(event:any) {
+    this.acceptedTermsOfUseAndPrivacyPolicy = event.checked;
     this.disableSubmitButton = !this.disableSubmitButton
   }
+
 }

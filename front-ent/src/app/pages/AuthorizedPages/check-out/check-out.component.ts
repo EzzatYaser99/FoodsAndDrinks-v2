@@ -11,7 +11,7 @@ import {RequestOrder} from "../../../model/request-order";
 import {Item} from "../../../model/item";
 import {PurchaseRequest} from "../../../model/purchase-request";
 import {PurchaseService} from "../../../shared/services/purchase.service";
-import {Client} from "../../../model/client";
+import {User} from "../../../model/user";
 import {Router} from "@angular/router";
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
@@ -119,10 +119,10 @@ export class CheckOutComponent implements OnInit {
     } else {
       /* #1 */
       // @ts-ignore
-      let client: Client = new Client();
+      let client: User = new User();
       client.name = this.checkoutParentGroup.controls['FullName'].value;
       client.email = this.checkoutParentGroup.controls['Email'].value;
-      client.phoneNumber = this.checkoutParentGroup.controls['Phone'].value;
+      client.mobilePhone = this.checkoutParentGroup.controls['Phone'].value;
 
       /* #2 */
       // @ts-ignore

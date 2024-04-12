@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JwtLogin {
 
+    private String name;
     private String email;
-
+    private String mobilePhone;
+    private String gender;
     private String password;
+    private Boolean acceptPolicy;
 
 }

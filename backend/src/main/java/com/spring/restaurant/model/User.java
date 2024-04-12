@@ -14,17 +14,29 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "_user")
+@Table(name = "users")
 public class User extends BaseEntity {
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "mobile_phone")
+    public String mobilePhone;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "gender")
+    public String gender;
 
     @Column(name = "password")
     private String password;
 
     @Column(name = "active")
     private int active;
+
+    @Column(name = "accept_Policy")
+    private boolean acceptPolicy;
 
 
     @ManyToMany(fetch = FetchType.EAGER)

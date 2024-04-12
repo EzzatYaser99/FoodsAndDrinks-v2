@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {CookieService} from "ngx-cookie-service"
+import {User} from "../../../model/user";
 @Injectable({
   providedIn: 'root'
 })
@@ -28,8 +29,8 @@ export class AuthenticationService {
     )
   }
 
-  createUser(email: string, password: string): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'signup', {email, password}).pipe(
+  createUser(user: User, httpOptions: { headers: HttpHeaders }): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'signup', user,httpOptions).pipe(
       map(
         response => {
           return response;

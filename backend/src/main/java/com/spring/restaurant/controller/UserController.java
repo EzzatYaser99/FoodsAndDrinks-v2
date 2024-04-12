@@ -55,8 +55,12 @@ public class UserController {
         } else {
             String myCode = UserCode.getCode();
             User user = new User();
+            user.setName(jwtLogin.getName());
             user.setEmail(jwtLogin.getEmail());
+            user.setMobilePhone(jwtLogin.getMobilePhone());
+            user.setGender(jwtLogin.getGender());
             user.setPassword(passwordEncoder.encode(jwtLogin.getPassword()));
+            user.setAcceptPolicy(jwtLogin.getAcceptPolicy());
             user.setActive(0);
             user.getAuthorities().add(authoritiesService.getAuthorities().get(0));
             Mail mail = new Mail(jwtLogin.getEmail(), myCode);
