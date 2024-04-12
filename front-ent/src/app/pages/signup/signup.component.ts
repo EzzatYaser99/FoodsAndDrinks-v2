@@ -14,14 +14,16 @@ import {InputGroupModule} from "primeng/inputgroup";
 import {InputGroupAddonModule} from "primeng/inputgroupaddon";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {PasswordModule} from "primeng/password";
-import { TooltipModule } from 'primeng/tooltip';
+import {TooltipModule} from 'primeng/tooltip';
+import Swal, {SweetAlertOptions} from 'sweetalert2'
+import {CheckboxModule} from "primeng/checkbox";
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule,TooltipModule]
+  imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule, TooltipModule, CheckboxModule]
 })
 export class SignupComponent implements OnInit {
   signupForm: any;
@@ -39,6 +41,8 @@ export class SignupComponent implements OnInit {
     ' OR ( {+1-,+91-,+912-} + 10 digits ) Like +1-8087339090  \n' ;
    userMobilePhone: any;
    validMobilePhone: boolean=false;
+  acceptedTermsOfUseAndPrivacyPolicy: boolean = false;
+  disableSubmitButton : boolean = true;
 
   constructor(
     private _router: Router,private _formBuilder: FormBuilder,private authService: AuthenticationService) {
@@ -82,6 +86,16 @@ export class SignupComponent implements OnInit {
 
   done() {
     this.isLoading = true;
+    if (!this.checkEmployeeMobilePhoneValidation()) {
+      Swal.fire({
+        icon: "error",
+        text: "Invalid mobile phone number",
+        confirmButtonColor: "#0d6efd",
+        confirmButtonText: "OK"
+      });
+      this.isLoading = false;
+      return;
+    }
     this.authService.createUser(
       this.signupForm.controls['Email'].value, this.signupForm.controls['Password'].value)
       .subscribe({
@@ -121,25 +135,17 @@ export class SignupComponent implements OnInit {
 
 
   onChangeMobileNumber(event:any) {
-    debugger
     this.userMobilePhone = event?.target?.value;
   }
 
   private checkEmployeeMobilePhoneValidation() {
-    this.validMobilePhone = this.userMobilePhone?.Mobile_Phone?.match(/^((\+?)\d{1,3}[- ]?)?\d{10,11}$/) &&
-      !(this.userMobilePhone.Mobile_Phone.match(/0{5,}/));
-    if(this.validMobilePhone) {
-      return true;
-    } else {
-      // show alert
-      return false
-    }
+    this.validMobilePhone = this.userMobilePhone?.match(/^((\+?)\d{1,3}[- ]?)?\d{10,11}$/) &&
+      !(this.userMobilePhone?.match(/0{5,}/));
+    return this.validMobilePhone;
   }
 
 
-
-
-
-
-
+  onChangeAcceptedTermsOfUseAndPrivacyPolicy(event:any) {
+    this.disableSubmitButton = !this.disableSubmitButton
+  }
 }

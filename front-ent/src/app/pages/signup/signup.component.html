@@ -65,11 +65,14 @@
             <p-password class="" [required]="true" formControlName="ConfirmPassword"
                         id="confirmPassword1"></p-password>
           </div>
-        </div>
+          <div class="col-6 col-sm-10 m-auto mt-2">
+            <p-checkbox class="px-1" [binary]="true" label="i accept the terms of use and privacy policy" (onChange)="onChangeAcceptedTermsOfUseAndPrivacyPolicy($event)"  [(ngModel)]="acceptedTermsOfUseAndPrivacyPolicy"></p-checkbox>
+          </div>
+          </div>
         <div class="d-flex justify-content-end mt-3">
           <button pButton class="btn btn-cancel px-3 w-30 mx-3" label="Cancel"
                   (click)="Cancel()"></button>
-          <button pButton class="btn btn-primary px-3 w-30" label="Submit"
+          <button [disabled]="disableSubmitButton"  pButton class="btn btn-primary px-3 w-30" label="Submit"
                   icon="pi pi-check " [loading]="isLoading" (click)="done()"></button>
 
         </div>

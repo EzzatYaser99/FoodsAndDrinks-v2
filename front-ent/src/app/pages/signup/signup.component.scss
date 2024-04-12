@@ -29,7 +29,7 @@ input[type="radio"] {
   border-left: 5px solid #42A948; /* green */
 }
 label {
-  font-size: 12px !important;
+  font-size: 14px !important;
   color: rgb(76, 86, 106);
 }
 input[type="radio"]:required:invalid {
@@ -57,4 +57,8 @@ width:70% !important;
 
 ::ng-deep .p-inputtext.ng-dirty.ng-invalid{
   border-left: 5px solid #a94442; /* red */
+}
+::ng-deep.p-checkbox-label{
+  margin: 0 10px !important;
+
 }
