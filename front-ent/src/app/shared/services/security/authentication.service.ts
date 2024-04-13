@@ -29,7 +29,7 @@ export class AuthenticationService {
     )
   }
 
-  createUser(user: User, httpOptions: { headers: HttpHeaders }): Observable<any> {
+  createUser(user?: User, httpOptions?: { headers: HttpHeaders }): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'signup', user,httpOptions).pipe(
       map(
         response => {

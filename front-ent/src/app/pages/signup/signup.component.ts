@@ -1,15 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {
   FormBuilder,
   Validators,
   ReactiveFormsModule,
   FormsModule,
 } from "@angular/forms";
-import {LoginUserInformationService} from "../../shared/services/login-user-information.service";
 import {Router, RouterLink} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpHeaders} from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {SpaceValidator} from "../../model/space-validator";
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {InputTextModule} from 'primeng/inputtext';
@@ -35,7 +33,7 @@ import {ToggleButtonModule} from "primeng/togglebutton";
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule, TooltipModule, CheckboxModule, StepperModule, NgClass, IconFieldModule, InputIconModule, ToggleButtonModule]
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit ,OnDestroy{
   signupForm: any;
   isLoading: boolean = false;
   genderList: any[] = [
@@ -57,6 +55,9 @@ export class SignupComponent implements OnInit {
    userMobilePhone: any;
   acceptedTermsOfUseAndPrivacyPolicy: boolean = false;
   disableSubmitButton : boolean = true;
+  active: number = 0 ;
+  activeCodeForm: any;
+  account:string='';
 
   constructor(
     private _router: Router,private _formBuilder: FormBuilder,private authService: AuthenticationService) {
@@ -65,7 +66,13 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.mySignupForm()
-    this.selectedGenderType = this.genderList[1];
+    this.selectedGenderType = this.genderList[1].name;
+    // @ts-ignore
+    // this.account = sessionStorage.getItem('account');
+    this.myActiveCodeForm();
+    this.startTimer();
+
+
   }
 
   mySignupForm() {
@@ -99,11 +106,9 @@ export class SignupComponent implements OnInit {
   }
 
 
-  done() {
-    this.isLoading = true;
-    if (!this.checkUserMobilePhoneValidation() || !this.checkUserPasswordConfirm() ) {
-      this.isLoading = false;
-      return;
+  createUser(nextCallback?:any) {
+    if (!this.checkUserMobilePhoneValidation() || !this.checkUserPasswordConfirm() || !this.checkUserEmailValidation()) {
+      return
     }
     // @ts-ignore
     let user = new User();
@@ -120,30 +125,21 @@ export class SignupComponent implements OnInit {
       })
     };
 
-    this.authService.createUser(userBody,httpOptions)
-                  .subscribe({
-                    next: response => {
-                      // alert(this.signupForm.controls['Email'].value)
-                      // alert(this.signupForm.controls['Password'].value)
-                      if (response.result == 1) {
-                        sessionStorage.setItem('account', user.email);
-                        this._router.navigate(['signup/active']);
-                      } else {
-                        this.isLoading = false;
-                        alert('Email is Exist');
-                      }
+      this.authService.createUser(userBody,httpOptions)
+        .subscribe({
+          next: response => {
+            if (response.result == 1) {
+              sessionStorage.setItem('account', user.email);
+              // this._router.navigate(['signup/active']);
+              nextCallback.emit()
+            } else {
+              alert('Email is Exist');
+            }
 
-                    }, error: error => {
-                      this.isLoading = false
-                      alert("Email or Password is invaild")
-
-                    }
-
-                  });
-
-    setTimeout(() => {
-      this.isLoading = false
-    }, 2000);
+          }, error: error => {
+            alert("Email or Password is invaild")
+          }
+        });
 
   }
 
@@ -173,13 +169,10 @@ export class SignupComponent implements OnInit {
     return true;
   }
 
-  private displayPasswordMismatchError() {
-    Swal.fire({
-      icon: "error",
-      text: "Passwords do not match",
-      confirmButtonColor: "#0d6efd",
-      confirmButtonText: "OK"
-    });
+
+  onChangeEmailAddress(event: any) {
+    this.account = event?.target.value;
+    this.signupForm.controls['Email'].value = event?.target.value;
   }
   private checkUserMobilePhoneValidation() {
     const isValidMobilePhone = this.validateMobilePhoneFormat() && this.validateNoRepeatedZeros();
@@ -208,6 +201,39 @@ export class SignupComponent implements OnInit {
       confirmButtonText: "OK"
     });
   }
+  private checkUserEmailValidation() {
+    const isValidEmailAddress = this.validateEmailAddressFormat() ;
+
+    if (!isValidEmailAddress) {
+      this.displayInvalidEmailAddressError();
+    }
+
+    return isValidEmailAddress;
+  }
+
+  private validateEmailAddressFormat() {
+    const EmailAddressRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const userEmailAddress = this.signupForm.controls['Email'].value;
+    return !!userEmailAddress?.match(EmailAddressRegex);
+  }
+
+  private displayInvalidEmailAddressError() {
+    Swal.fire({
+      icon: "error",
+      text: "Invalid Email Address",
+      confirmButtonColor: "#0d6efd",
+      confirmButtonText: "OK"
+    });
+  }
+
+  private displayPasswordMismatchError() {
+    Swal.fire({
+      icon: "error",
+      text: "Passwords do not match",
+      confirmButtonColor: "#0d6efd",
+      confirmButtonText: "OK"
+    });
+  }
 
   onChangeAcceptedTermsOfUseAndPrivacyPolicy(event:any) {
     this.acceptedTermsOfUseAndPrivacyPolicy = event.checked;
@@ -219,6 +245,68 @@ export class SignupComponent implements OnInit {
     let password :string = this.signupForm.controls['Password'].value  ;
     this.signupForm.get('ConfirmPassword').setValidators([Validators.required, Validators.pattern(password)]);
     this.signupForm.get('ConfirmPassword').updateValueAndValidity();
+  }
+
+  myActiveCodeForm() {
+    this.activeCodeForm = this._formBuilder.group({
+      Code: [
+        '',
+        [Validators.required,
+          SpaceValidator.onlyContainSpace,
+
+        ]
+      ],
+
+    });
+  }
+
+  activeAccount(nextCallback?: any) {
+    if (this.activeCodeForm.invalid) {
+      this.activeCodeForm.markAllAsTouched();
+      return;
+    }
+    this.authService.activeAccount(this.account, this.activeCodeForm.controls['Code'].value)
+      .subscribe({
+        next: response => {
+          if (response.result == 1) {
+            sessionStorage.removeItem('account');
+            // this._router.navigate(['login']);
+            nextCallback.emit()
+
+          } else {
+            alert('Invalid Code');
+          }
+        }
+      })
+  }
+
+
+  getStarted() {
+    this._router.navigate(['login']);
+  }
+
+  goNextThenCreateUser(nextCallback: any) {
+   this.createUser(nextCallback)
+
+  }
+
+  timer: number = 20;
+  timerInterval: any;
+
+  startTimer() {
+    this.timerInterval = setInterval(() => {
+      this.timer--;
+      if (this.timer === 0) {
+        clearInterval(this.timerInterval);
+        // Timer expired, perform necessary actions
+        // For example, prompt the user to enter OTP
+      }
+    }, 1000);
+  }
+
+
+  ngOnDestroy(): void {
+    clearInterval(this.timerInterval);
   }
 
 }

@@ -3,7 +3,6 @@
   background-color: rgba(255, 255, 255, 0.8);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  padding: 30px;
 }
 
 .signForm {
@@ -61,4 +60,18 @@ width:70% !important;
 ::ng-deep.p-checkbox-label{
   margin: 0 10px !important;
 
+}
+
+::ng-deep .p-stepper {
+  flex-basis: 40rem !important;
+}
+::ng-deep .p-stepper .p-stepper-separator {
+  height: 4px;
+}
+::ng-deep  .p-stepper .p-stepper-header .p-stepper-action {
+  padding: 15px;
+  cursor: auto;
+}
+::ng-deep .p-stepper-nav{
+  padding-left: 15px;
 }
