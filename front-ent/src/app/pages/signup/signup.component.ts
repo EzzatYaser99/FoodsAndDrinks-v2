@@ -1,12 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators, ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+  FormsModule,
+} from "@angular/forms";
 import {LoginUserInformationService} from "../../shared/services/login-user-information.service";
 import {Router, RouterLink} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {SpaceValidator} from "../../model/space-validator";
-import {NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
@@ -18,13 +23,17 @@ import {TooltipModule} from 'primeng/tooltip';
 import Swal, {SweetAlertOptions} from 'sweetalert2'
 import {CheckboxModule} from "primeng/checkbox";
 import {User} from "../../model/user";
+import {StepperModule} from "primeng/stepper";
+import {IconFieldModule} from "primeng/iconfield";
+import {InputIconModule} from "primeng/inputicon";
+import {ToggleButtonModule} from "primeng/togglebutton";
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule, TooltipModule, CheckboxModule]
+  imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule, TooltipModule, CheckboxModule, StepperModule, NgClass, IconFieldModule, InputIconModule, ToggleButtonModule]
 })
 export class SignupComponent implements OnInit {
   signupForm: any;
@@ -40,8 +49,12 @@ export class SignupComponent implements OnInit {
     ' OR ( 11 digits Mobile Number ) Like 08087339090          \n'+
     ' OR ( {+1,+91,+912} + 10 digits ) Like +1 8087339090     \n'+
     ' OR ( {+1-,+91-,+912-} + 10 digits ) Like +1-8087339090  \n' ;
+
+  passwordValidation: string = 'At least 8 characters long\n' +
+    'Contains at least one uppercase letter\n' +
+    'Contains at least one lowercase letter\n' +
+    'Contains at least one digit' ;
    userMobilePhone: any;
-   validMobilePhone: boolean=false;
   acceptedTermsOfUseAndPrivacyPolicy: boolean = false;
   disableSubmitButton : boolean = true;
 
@@ -70,14 +83,15 @@ export class SignupComponent implements OnInit {
       Password: [
         '',
         [Validators.required,
-          Validators.minLength(5),
-
+          Validators.minLength(8),
+          Validators.pattern( /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/)
         ]
       ],
       ConfirmPassword: [
         '',
         [Validators.required,
-          Validators.minLength(5),
+          Validators.minLength(8),
+          Validators.pattern(/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\\d]{8,}$/)
 
         ]
       ]
@@ -87,17 +101,10 @@ export class SignupComponent implements OnInit {
 
   done() {
     this.isLoading = true;
-    if (!this.checkEmployeeMobilePhoneValidation()) {
-      Swal.fire({
-        icon: "error",
-        text: "Invalid mobile phone number",
-        confirmButtonColor: "#0d6efd",
-        confirmButtonText: "OK"
-      });
+    if (!this.checkUserMobilePhoneValidation() || !this.checkUserPasswordConfirm() ) {
       this.isLoading = false;
       return;
     }
-    ;
     // @ts-ignore
     let user = new User();
     user.name = this.signupForm.controls['UserName'].value;
@@ -154,16 +161,64 @@ export class SignupComponent implements OnInit {
     this.userMobilePhone = event?.target?.value;
   }
 
-  private checkEmployeeMobilePhoneValidation() {
-    this.validMobilePhone = this.userMobilePhone?.match(/^((\+?)\d{1,3}[- ]?)?\d{10,11}$/) &&
-      !(this.userMobilePhone?.match(/0{5,}/));
-    return this.validMobilePhone;
+  private checkUserPasswordConfirm() {
+    const password = this.signupForm.controls['Password'].value;
+    const confirmPassword = this.signupForm.controls['ConfirmPassword'].value;
+
+    if (password !== confirmPassword) {
+      this.displayPasswordMismatchError();
+      return false;
+    }
+
+    return true;
   }
 
+  private displayPasswordMismatchError() {
+    Swal.fire({
+      icon: "error",
+      text: "Passwords do not match",
+      confirmButtonColor: "#0d6efd",
+      confirmButtonText: "OK"
+    });
+  }
+  private checkUserMobilePhoneValidation() {
+    const isValidMobilePhone = this.validateMobilePhoneFormat() && this.validateNoRepeatedZeros();
+
+    if (!isValidMobilePhone) {
+      this.displayInvalidMobilePhoneError();
+    }
+
+    return isValidMobilePhone;
+  }
+
+  private validateMobilePhoneFormat() {
+    const mobilePhoneRegex = /^((\+?)\d{1,3}[- ]?)?\d{10,11}$/;
+    return !!this.userMobilePhone?.match(mobilePhoneRegex);
+  }
+
+  private validateNoRepeatedZeros() {
+    return !this.userMobilePhone?.match(/0{5,}/);
+  }
+
+  private displayInvalidMobilePhoneError() {
+    Swal.fire({
+      icon: "error",
+      text: "Invalid mobile phone number",
+      confirmButtonColor: "#0d6efd",
+      confirmButtonText: "OK"
+    });
+  }
 
   onChangeAcceptedTermsOfUseAndPrivacyPolicy(event:any) {
     this.acceptedTermsOfUseAndPrivacyPolicy = event.checked;
     this.disableSubmitButton = !this.disableSubmitButton
+  }
+
+
+  onChangeConfirmPassword() {
+    let password :string = this.signupForm.controls['Password'].value  ;
+    this.signupForm.get('ConfirmPassword').setValidators([Validators.required, Validators.pattern(password)]);
+    this.signupForm.get('ConfirmPassword').updateValueAndValidity();
   }
 
 }

@@ -1,9 +1,9 @@
-<section class="signUpSection p-sm-5 p-4 py-5">
+<section class="signUpSection p-5 row m-auto w-100">
 
-  <form [formGroup]="signupForm">
+  <form [formGroup]="signupForm" class="col-md-8 col-xl-4 m-auto">
 
     <div class="d-flex pt-5 justify-content-center">
-      <div style="width: 40%" class="surface-card p-4 shadow-2 border border-round  signForm">
+      <div  class="surface-card p-4 shadow-2 border border-round  signForm ">
         <div class="text-center mb-2">
           <img alt="Image" class="mb-3 border rounded-circle" height="80"
                src="../../../assets/img/profile-img.jpg">
@@ -12,7 +12,7 @@
           <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/login">Sign In!</a>
         </div>
         <div class="row">
-          <div class="col-6 col-sm-10 m-auto">
+          <div class="col-sm-10 m-auto">
             <label for="userName">User Name</label>
             <p-inputGroup>
               <input [required]="true" style="padding: 5px"
@@ -20,13 +20,12 @@
                      placeholder=""/>
             </p-inputGroup>
           </div>
-          <div class="col-6 col-sm-10 m-auto mt-2">
-            <label for="email1">Mobile</label>
+          <div class="col-sm-10 m-auto mt-2">
+            <label for="mobile1">Mobile</label>
             <p-inputGroup>
               <input style="padding: 5px"
                      (change)="onChangeMobileNumber($event)"
                      [(ngModel)]="this.userMobilePhone"
-                     [style.border-left-color]="(this.validMobilePhone)?'green':''"
                      [pTooltip]="mobileNumberValidation"
                      [required]="true"
                      [pattern]="regexForMobNum"
@@ -37,7 +36,7 @@
                      [ngModelOptions]="{standalone: true}">
             </p-inputGroup>
           </div>
-          <div class="col-6 col-sm-10 m-auto mt-2">
+          <div class="col-sm-10 m-auto mt-2">
             <label for="email1">Email</label>
             <p-inputGroup>
               <input style="padding: 5px"
@@ -47,7 +46,7 @@
             </p-inputGroup>
 
           </div>
-          <div class="col-6 col-sm-10 m-auto mt-2">
+          <div class="col-sm-10 m-auto mt-2">
             <label>Gender</label>
             <div class="form-check" *ngFor="let item of genderList ">
                 <input class="form-check-input" type="radio" name="item"
@@ -55,17 +54,20 @@
                 <label [for]="item.value" class="ml-2">{{ item.name }}</label>
             </div>
           </div>
-          <div class="col-6 col-sm-10 m-auto mt-2">
+          <div class="col-sm-10 m-auto mt-2">
             <label for="password1" class="d-block">Password</label>
-            <p-password class="" [required]="true" formControlName="Password"
+            <p-password [pTooltip]="passwordValidation"
+                        [required]="true"
+                        formControlName="Password"
+                        tooltipPosition="bottom"
                         id="password1"></p-password>
           </div>
-          <div class="col-6 col-sm-10 m-auto mt-2">
+          <div class="col-sm-10 m-auto mt-2">
             <label class="d-block" for="confirmPassword1">Confirm Password</label>
-            <p-password class="" [required]="true" formControlName="ConfirmPassword"
+            <p-password class="" (change)="onChangeConfirmPassword()" [required]="true" formControlName="ConfirmPassword"
                         id="confirmPassword1"></p-password>
           </div>
-          <div class="col-6 col-sm-10 m-auto mt-2">
+          <div class="col-sm-10 m-auto mt-2">
             <p-checkbox class="px-1" [ngModelOptions]="{standalone: true}" [binary]="true" label="i accept the terms of use and privacy policy" (onChange)="onChangeAcceptedTermsOfUseAndPrivacyPolicy($event)"  [(ngModel)]="acceptedTermsOfUseAndPrivacyPolicy"></p-checkbox>
           </div>
           </div>
@@ -80,3 +82,5 @@
     </div>
   </form>
 </section>
+
+
