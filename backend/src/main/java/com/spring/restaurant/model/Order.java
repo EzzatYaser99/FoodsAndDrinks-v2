@@ -21,11 +21,11 @@ public class Order extends PublicData {
     private String image;
 
 
-    @Column(name = "description")
+    @Column(name = "description" , length = 2000)
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "id_category")
+    @JoinColumn(name = "category_id")
     private Category category;
 
 }
