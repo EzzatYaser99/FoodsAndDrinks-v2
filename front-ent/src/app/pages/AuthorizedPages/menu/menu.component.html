@@ -11,20 +11,20 @@
       [value]="orders" class="" layout="grid">
       <ng-template pTemplate="header">
         <div class="d-flex flex-column flex-md-row  justify-content-md-between px-5 py-2">
-          <p-dropdown
-            (onChange)="onSortChange($event)"
-            [(ngModel)]="sortKey"
-            [options]="sortSalaryOptions"
-            placeholder="Sort By Price"
-            styleClass="mb-2 mb-md-0">
-          </p-dropdown>
-          <p-dropdown (onChange)="filterCategory($event)"
-            [(ngModel)]="sortKey"
-            [options]="CategoryOptions"
-            optionLabel="label"
-            placeholder="All"
-            styleClass="mb-2  mb-md-0">
-          </p-dropdown>
+<!--          <p-dropdown-->
+<!--            (onChange)="onSortChange($event)"-->
+<!--            [(ngModel)]="sortKey"-->
+<!--            [options]="sortSalaryOptions"-->
+<!--            placeholder="Sort By Price"-->
+<!--            styleClass="mb-2 mb-md-0">-->
+<!--          </p-dropdown>-->
+<!--          <p-dropdown (onChange)="filterCategory($event)"-->
+<!--            [(ngModel)]="sortKey"-->
+<!--            [options]="CategoryOptions"-->
+<!--            optionLabel="label"-->
+<!--            placeholder="All"-->
+<!--            styleClass="mb-2  mb-md-0">-->
+<!--          </p-dropdown>-->
           <span class="p-input-icon-left mb-2 mb-md-0">
             <i class="pi pi-search"></i>
             <input #key (keyup)="doSearch(key.value)" pInputText placeholder="Search by Name" type="search">

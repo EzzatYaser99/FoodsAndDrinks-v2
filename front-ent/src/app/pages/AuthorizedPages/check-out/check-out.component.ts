@@ -14,7 +14,6 @@ import {User} from "../../../model/user";
 import {Router} from "@angular/router";
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
-import { DropdownModule } from 'primeng/dropdown';
 import { CurrencyPipe } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 
@@ -23,7 +22,7 @@ import { InputTextModule } from 'primeng/inputtext';
     templateUrl: './check-out.component.html',
     styleUrls: ['./check-out.component.scss'],
     standalone: true,
-    imports: [ReactiveFormsModule, InputTextModule, DropdownModule, SharedModule, ButtonModule, CurrencyPipe]
+    imports: [ReactiveFormsModule, InputTextModule, SharedModule, ButtonModule, CurrencyPipe]
 })
 export class CheckOutComponent implements OnInit {
   selectedFromCountry: any;
