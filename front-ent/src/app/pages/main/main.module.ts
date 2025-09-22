@@ -7,27 +7,21 @@ import {MenubarModule} from "primeng/menubar";
 import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {CarouselModule} from "primeng/carousel";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {SharedModule} from "../../shared/shared.module";
 import {MenuModule} from "../AuthorizedPages/menu/menu.module";
 import {HttpIntercepterBaseAuthService} from "../../shared/services/security/http-intercepter-base-auth.service";
 
-@NgModule({
-    exports: [
+@NgModule({ exports: [
         MainComponent
-    ],
-    imports: [
-        CommonModule,
+    ], imports: [CommonModule,
         MainRoutingModule,
         ButtonModule,
         CommonModule,
         InputTextModule,
         CarouselModule,
-        HttpClientModule,
         SharedModule,
         MenuModule,
-        MainComponent
-    ]
-})
+        MainComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class MainModule {
 }

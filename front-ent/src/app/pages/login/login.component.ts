@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginUserInformationService} from "../../shared/services/login-user-information.service";
 import { Router, RouterLink } from "@angular/router";
 import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {
   FacebookLoginProvider,
