@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import {StateCountryService} from "../../../shared/services/state-country.service";
 import {Country} from "../../../model/country";
 import {State} from "../../../model/state";
-import {allowMangle} from "@angular-devkit/build-angular/src/utils/environment-options";
 import {SpaceValidator} from "../../../model/space-validator";
 import {CartService} from "../../../shared/services/cart.service";
 import {Address} from "../../../model/address";
@@ -16,7 +15,7 @@ import {Router} from "@angular/router";
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
 import { DropdownModule } from 'primeng/dropdown';
-import { NgIf, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
@@ -24,7 +23,7 @@ import { InputTextModule } from 'primeng/inputtext';
     templateUrl: './check-out.component.html',
     styleUrls: ['./check-out.component.scss'],
     standalone: true,
-    imports: [ReactiveFormsModule, InputTextModule, NgIf, DropdownModule, SharedModule, ButtonModule, CurrencyPipe]
+    imports: [ReactiveFormsModule, InputTextModule, DropdownModule, SharedModule, ButtonModule, CurrencyPipe]
 })
 export class CheckOutComponent implements OnInit {
   selectedFromCountry: any;

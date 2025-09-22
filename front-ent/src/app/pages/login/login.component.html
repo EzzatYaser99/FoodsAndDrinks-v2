@@ -10,67 +10,78 @@
         <div [formGroup]="loginForm" class="loginForm surface-card p-4 shadow-2 border border-round w-75">
           <div class="text-center mb-5">
             <img alt="Image" class="scalein animation-duration-500 mb-3 border rounded-circle" height="80"
-                 src="../../../assets/img/profile-img.jpg">
-            <div class="text-white text-3xl font-medium mb-3">Welcome Back</div>
-            <span class="text-white font-medium line-height-3">Don't have an account?</span>
-            <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/signup"
-            >Create today!</a>
+              src="../../../assets/img/profile-img.jpg">
+              <div class="text-white text-3xl font-medium mb-3">Welcome Back</div>
+              <span class="text-white font-medium line-height-3">Don't have an account?</span>
+              <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/signup"
+              >Create today!</a>
 
-          </div>
-          <div>
-            <label class="d-block text-white font-medium mb-2" for="email1">Email</label>
-            <input [class.border-green-600]="!loginForm.controls['Email'].errors"
-                   [class.ng-dirty]="loginForm.controls['Email'].errors"
-                   class="w-100 border border-2 ng-invalid"
-                   formControlName="Email"
-                   id="email1" pInputText
-                   placeholder="Example@gmail.com"
-                   type="email">
-            <div *ngIf="loginForm.controls['Email'].errors" class="text-danger my-2 font-medium text-xl">
-              <small *ngIf="loginForm.controls['Email'].hasError('required')" class="p-3">requierd email</small>
-              <small
-                *ngIf="loginForm.controls['Email'].hasError('email')&& !loginForm.controls['Email']. hasError('minlength')"
-                class="p-3">Invalid Email</small>
             </div>
+            <div>
+              <label class="d-block text-white font-medium mb-2" for="email1">Email</label>
+              <input [class.border-green-600]="!loginForm.controls['Email'].errors"
+                [class.ng-dirty]="loginForm.controls['Email'].errors"
+                class="w-100 border border-2 ng-invalid"
+                formControlName="Email"
+                id="email1" pInputText
+                placeholder="Example@gmail.com"
+                type="email">
+                @if (loginForm.controls['Email'].errors) {
+                  <div class="text-danger my-2 font-medium text-xl">
+                    @if (loginForm.controls['Email'].hasError('required')) {
+                      <small class="p-3">requierd email</small>
+                    }
+                    @if (loginForm.controls['Email'].hasError('email')&& !loginForm.controls['Email']. hasError('minlength')) {
+                      <small
+                      class="p-3">Invalid Email</small>
+                    }
+                  </div>
+                }
 
-            <label class="d-block text-white font-medium mb-2 mt-2" for="password1">Password</label>
-            <input [class.border-green-600]="!loginForm.controls['Password'].errors"
-                   [class.ng-dirty]="loginForm.controls['Password'].errors"
-                   class="w-100 mb-1  border border-2" formControlName="Password"
-                   id="password1"
-                   pInputText placeholder="Password" type="password">
+                <label class="d-block text-white font-medium mb-2 mt-2" for="password1">Password</label>
+                <input [class.border-green-600]="!loginForm.controls['Password'].errors"
+                  [class.ng-dirty]="loginForm.controls['Password'].errors"
+                  class="w-100 mb-1  border border-2" formControlName="Password"
+                  id="password1"
+                  pInputText placeholder="Password" type="password">
 
 
-            <div *ngIf="loginForm.controls['Password'].errors" class="text-danger my-2 font-medium text-xl">
-              <small *ngIf="loginForm.controls['Password'].hasError('required')" class="p-3">requierd password</small>
-              <small *ngIf="loginForm.controls['Password'].hasError('minlength')" class="p-3">min length is 5
-                Character</small>
-            </div>
+                  @if (loginForm.controls['Password'].errors) {
+                    <div class="text-danger my-2 font-medium text-xl">
+                      @if (loginForm.controls['Password'].hasError('required')) {
+                        <small class="p-3">requierd password</small>
+                      }
+                      @if (loginForm.controls['Password'].hasError('minlength')) {
+                        <small class="p-3">min length is 5
+                        Character</small>
+                      }
+                    </div>
+                  }
 
-            <div class="d-flex align-items-center justify-content-between mb-3 mt-2">
-              <div class="d-flex align-items-center">
-                <p-checkbox [binary]="true" id="rememberme1" styleClass="mr-2"></p-checkbox>
-                <label class="text-white" for="rememberme1">Remember me</label>
-              </div>
-              <a routerLink="reset" class="font-medium no-underline ml-2 text-primary text-right cursor-pointer">Forgot
-                password?</a>
-            </div>
+                  <div class="d-flex align-items-center justify-content-between mb-3 mt-2">
+                    <div class="d-flex align-items-center">
+                      <p-checkbox [binary]="true" id="rememberme1" styleClass="mr-2"></p-checkbox>
+                      <label class="text-white" for="rememberme1">Remember me</label>
+                    </div>
+                    <a routerLink="reset" class="font-medium no-underline ml-2 text-primary text-right cursor-pointer">Forgot
+                    password?</a>
+                  </div>
 
 
-            <button (click)="handelLogin()" [disabled]="loginForm.invalid"
+                  <button (click)="handelLogin()" [disabled]="loginForm.invalid"
                     class="w-100 p-button-secondary p-2"
                     icon="pi{{IsHttpCaalling ? ' pi-spinner pi-spin': ' pi-user'}}" label="Sign In" pButton
-                    pRipple></button>
-            <div class="row p-2 social mt-3">
-              <a (click)="signInWithFB()" class="facebook btn  w-100">
-                <i class="fa-brands fa-facebook-f px-1 mx-1"></i>
-                Login with Facebook
-              </a>
+                  pRipple></button>
+                  <div class="row p-2 social mt-3">
+                    <a (click)="signInWithFB()" class="facebook btn  w-100">
+                      <i class="fa-brands fa-facebook-f px-1 mx-1"></i>
+                      Login with Facebook
+                    </a>
 
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>

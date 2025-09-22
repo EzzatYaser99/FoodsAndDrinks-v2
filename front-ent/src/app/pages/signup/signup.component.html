@@ -6,107 +6,109 @@
       <div  class="card shadow-2 border border-round  signForm w-100 p-5 ">
         <div class="text-center mb-2">
           <img alt="Image" class="mb-3 border rounded-circle" height="80"
-               src="../../../assets/img/profile-img.jpg">
-          <div class="text-3xl font-medium ">Sign Up</div>
-          <span class="text-600 font-medium ">If you have an account?</span>
-          <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/login">Sign In!</a>
-        </div>
-        <p-stepper [(activeStep)]="active">
-          <p-stepperPanel>
-            <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
-              <button style="cursor: auto;" pButton class="bg-transparent border-0 d-inline-flex flex-column gap-2" (click)="onClick">
-                    <span class="rounded border-5 p-2  w-auto  d-inline-flex align-items-center justify-content-center"
-                          [ngClass]="{'bg-primary border-primary': index <= active,'border': index > active }">
-                        <i class="pi pi-user"></i>
-                    </span>
-              </button>
-            </ng-template>
-            <ng-template pTemplate="content" let-nextCallback="nextCallback">
-              <div class="d-flex  flex-column gap-2 mx-auto" style="min-height: 16rem; ">
+            src="../../../assets/img/profile-img.jpg">
+            <div class="text-3xl font-medium ">Sign Up</div>
+            <span class="text-600 font-medium ">If you have an account?</span>
+            <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/login">Sign In!</a>
+          </div>
+          <p-stepper [(activeStep)]="active">
+            <p-stepperPanel>
+              <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+                <button style="cursor: auto;" pButton class="bg-transparent border-0 d-inline-flex flex-column gap-2" (click)="onClick">
+                  <span class="rounded border-5 p-2  w-auto  d-inline-flex align-items-center justify-content-center"
+                    [ngClass]="{'bg-primary border-primary': index <= active,'border': index > active }">
+                    <i class="pi pi-user"></i>
+                  </span>
+                </button>
+              </ng-template>
+              <ng-template pTemplate="content" let-nextCallback="nextCallback">
+                <div class="d-flex  flex-column gap-2 mx-auto" style="min-height: 16rem; ">
                   <div class="row">
                     <div class="col-sm-10 m-auto">
                       <label for="userName">User Name</label>
                       <p-inputGroup>
                         <input [required]="true" style="padding: 5px"
-                               formControlName="UserName" id="userName" pInputText
-                               placeholder=""/>
-                      </p-inputGroup>
-                    </div>
-                    <div class="col-sm-10 m-auto mt-2">
-                      <label for="mobile1">Mobile</label>
-                      <p-inputGroup>
-                        <input style="padding: 5px"
-                               (change)="onChangeMobileNumber($event)"
-                               [(ngModel)]="this.userMobilePhone"
-                               [pTooltip]="mobileNumberValidation"
-                               [required]="true"
-                               [pattern]="regexForMobNum"
-                               id="mobile1" pInputText
-                               type="tel" placeholder=""
-                               tooltipPosition="bottom"
-                               [appendTo]="'body'"
-                               [ngModelOptions]="{standalone: true}">
-                      </p-inputGroup>
-                    </div>
-                    <div class="col-sm-10 m-auto mt-2">
-                      <label for="email1">Email</label>
-                      <p-inputGroup>
-                        <input (change)="onChangeEmailAddress($event)"
-                               style="padding: 5px"
-                               [required]="true"
-                               formControlName="Email" id="email1" pInputText
-                               type="text" placeholder="">
-                      </p-inputGroup>
-
-                    </div>
-                    <div class="col-sm-10 m-auto mt-2">
-                      <label>Gender</label>
-                      <div class="form-check" *ngFor="let item of genderList ">
-                        <input class="form-check-input" type="radio" name="item"
-                               (change)="onChangeGenderType(item.name)">
-                        <label [for]="item.value" class="ml-2">{{ item.name }}</label>
+                          formControlName="UserName" id="userName" pInputText
+                          placeholder=""/>
+                        </p-inputGroup>
                       </div>
-                    </div>
-                    <div class="col-sm-10 m-auto mt-2">
-                      <label for="password1" class="d-block">Password</label>
-                      <p-password [pTooltip]="passwordValidation"
-                                  [required]="true"
-                                  formControlName="Password"
-                                  tooltipPosition="bottom"
-                                  id="password1"></p-password>
-                    </div>
-                    <div class="col-sm-10 m-auto mt-2">
-                      <label class="d-block" for="confirmPassword1">Confirm Password</label>
-                      <p-password class="" (change)="onChangeConfirmPassword()" [required]="true" formControlName="ConfirmPassword"
-                                  id="confirmPassword1"></p-password>
-                    </div>
-                    <div class="col-sm-10 m-auto mt-2">
-                      <p-checkbox class="px-1" [ngModelOptions]="{standalone: true}" [binary]="true" label="i accept the terms of use and privacy policy" (onChange)="onChangeAcceptedTermsOfUseAndPrivacyPolicy($event)"  [(ngModel)]="acceptedTermsOfUseAndPrivacyPolicy"></p-checkbox>
-                    </div>
-                  </div>
+                      <div class="col-sm-10 m-auto mt-2">
+                        <label for="mobile1">Mobile</label>
+                        <p-inputGroup>
+                          <input style="padding: 5px"
+                            (change)="onChangeMobileNumber($event)"
+                            [(ngModel)]="this.userMobilePhone"
+                            [pTooltip]="mobileNumberValidation"
+                            [required]="true"
+                            [pattern]="regexForMobNum"
+                            id="mobile1" pInputText
+                            type="tel" placeholder=""
+                            tooltipPosition="bottom"
+                            [appendTo]="'body'"
+                            [ngModelOptions]="{standalone: true}">
+                          </p-inputGroup>
+                        </div>
+                        <div class="col-sm-10 m-auto mt-2">
+                          <label for="email1">Email</label>
+                          <p-inputGroup>
+                            <input (change)="onChangeEmailAddress($event)"
+                              style="padding: 5px"
+                              [required]="true"
+                              formControlName="Email" id="email1" pInputText
+                              type="text" placeholder="">
+                            </p-inputGroup>
 
-              </div>
-              <div class="d-flex  pt-4 justify-content-end">
-                <button class="btn btn-primary p-1" [disabled]="disableSubmitButton" pButton  pRipple (click)="goNextThenCreateUser(nextCallback)" label="Next"
-                        iconPos="right"></button>
-              </div>
-              <div class="d-flex justify-content-end mt-5">
-                <button pButton class="btn btn-cancel px-3 w-30 mx-3" label="Cancel" (click)="Cancel()"></button>
-              </div>
-            </ng-template>
-          </p-stepperPanel>
-          <p-stepperPanel>
-            <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
-              <button style="cursor: auto;" pButton class="bg-transparent  border-0 inline-flex flex-column gap-2" (click)="onClick">
-                    <span class="rounded border-2 w-auto p-2 d-inline-flex align-items-center justify-content-center"
-                          [ngClass]="{'bg-primary border-primary': index <= active,'border': index > active }">
-                      <i class="fas fa fa-regular fa-check" style="color: #00040a;"></i>
-                    </span>
-              </button>
-            </ng-template>
-            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback">
-              <div class="d-flex  flex-column gap-2 mx-auto">
-                <div class="d-flex  flex-wrap justify-content-center gap-3">
+                          </div>
+                          <div class="col-sm-10 m-auto mt-2">
+                            <label>Gender</label>
+                            @for (item of genderList ; track item) {
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="item"
+                                  (change)="onChangeGenderType(item.name)">
+                                  <label [for]="item.value" class="ml-2">{{ item.name }}</label>
+                                </div>
+                              }
+                            </div>
+                            <div class="col-sm-10 m-auto mt-2">
+                              <label for="password1" class="d-block">Password</label>
+                              <p-password [pTooltip]="passwordValidation"
+                                [required]="true"
+                                formControlName="Password"
+                                tooltipPosition="bottom"
+                              id="password1"></p-password>
+                            </div>
+                            <div class="col-sm-10 m-auto mt-2">
+                              <label class="d-block" for="confirmPassword1">Confirm Password</label>
+                              <p-password class="" (change)="onChangeConfirmPassword()" [required]="true" formControlName="ConfirmPassword"
+                              id="confirmPassword1"></p-password>
+                            </div>
+                            <div class="col-sm-10 m-auto mt-2">
+                              <p-checkbox class="px-1" [ngModelOptions]="{standalone: true}" [binary]="true" label="i accept the terms of use and privacy policy" (onChange)="onChangeAcceptedTermsOfUseAndPrivacyPolicy($event)"  [(ngModel)]="acceptedTermsOfUseAndPrivacyPolicy"></p-checkbox>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="d-flex  pt-4 justify-content-end">
+                          <button class="btn btn-primary p-1" [disabled]="disableSubmitButton" pButton  pRipple (click)="goNextThenCreateUser(nextCallback)" label="Next"
+                          iconPos="right"></button>
+                        </div>
+                        <div class="d-flex justify-content-end mt-5">
+                          <button pButton class="btn btn-cancel px-3 w-30 mx-3" label="Cancel" (click)="Cancel()"></button>
+                        </div>
+                      </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel>
+                      <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+                        <button style="cursor: auto;" pButton class="bg-transparent  border-0 inline-flex flex-column gap-2" (click)="onClick">
+                          <span class="rounded border-2 w-auto p-2 d-inline-flex align-items-center justify-content-center"
+                            [ngClass]="{'bg-primary border-primary': index <= active,'border': index > active }">
+                            <i class="fas fa fa-regular fa-check" style="color: #00040a;"></i>
+                          </span>
+                        </button>
+                      </ng-template>
+                      <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback">
+                        <div class="d-flex  flex-column gap-2 mx-auto">
+                          <div class="d-flex  flex-wrap justify-content-center gap-3">
                     <form  [formGroup]="activeCodeForm" class="=">
                       <div class="d-flex justify-content-center">
                         <div class="card  shadow-2 border border-1 p-4 rounded w-100 ">
@@ -118,52 +120,52 @@
                           <p-inputGroup>
                             <input style="padding: 5px"
                                    formControlName="Code" id="email2" pInputText
-                                   type="text" placeholder="Enter Code that we sent to your mail">
-                          </p-inputGroup>
-                          <div>
-                            <p>{{ timer }}</p>
-                            <button  [disabled]="timer!=0" class="btn btn-primary" (click)="createUser()">Resent it</button>
-                          </div>
+                                        type="text" placeholder="Enter Code that we sent to your mail">
+                                      </p-inputGroup>
+                                      <div>
+                                        <p>{{ timer }}</p>
+                                        <button  [disabled]="timer!=0" class="btn btn-primary" (click)="createUser()">Resent it</button>
+                                      </div>
 
-                        </div>
-                      </div>
+                                    </div>
+                                  </div>
 
 
-                    </form>
-                </div>
-              </div>
-              <div class="d-flex  pt-4 justify-content-between">
-                <button class="btn btn-secondary p-1" pButton (click)="prevCallback.emit()" label="Back"></button>
-                <button class="btn btn-primary p-1" icon="fas fa-solid fa-check" (click)="activeAccount(nextCallback)" label="Active" pButton pRipple type="submit"></button>
-              </div>
-            </ng-template>
-          </p-stepperPanel>
-          <p-stepperPanel>
-            <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
-              <button style="cursor: auto;" class="bg-transparent border-0 inline-flex flex-column gap-2" (click)="onClick">
-                    <span class="rounded border-2 p-2  w-auto  d-inline-flex align-items-center justify-content-center"
-                          [ngClass]="{'bg-primary border-primary': index <= active, 'border': index > active }">
-                        <i class="pi pi-id-card"></i>
-                    </span>
-              </button>
-            </ng-template>
-            <ng-template pTemplate="content" let-prevCallback="prevCallback">
-              <div class="d-flex  flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
-                <div class="text-center mt-3  text-xl fw-bolder">Account created successfully</div>
-                <div class="text-center m-auto">
-                 <i class="fa-regular fa-circle-check fa-2xl " style="color: #249b22; font-size: 100px;"></i>
-                </div>
-              </div>
-              <div class="d-flex pt-4 justify-content-between">
-                <button class="btn btn-secondary p-1" pButton (click)="prevCallback.emit()" label="Back"></button>
-                <button class="btn btn-primary p-1" pButton (click)="getStarted()" label="Get Started"></button>
-              </div>
-            </ng-template>
-          </p-stepperPanel>
-        </p-stepper>
-      </div>
-    </div>
-  </form>
-</section>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="d-flex  pt-4 justify-content-between">
+                              <button class="btn btn-secondary p-1" pButton (click)="prevCallback.emit()" label="Back"></button>
+                              <button class="btn btn-primary p-1" icon="fas fa-solid fa-check" (click)="activeAccount(nextCallback)" label="Active" pButton pRipple type="submit"></button>
+                            </div>
+                          </ng-template>
+                        </p-stepperPanel>
+                        <p-stepperPanel>
+                          <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
+                            <button style="cursor: auto;" class="bg-transparent border-0 inline-flex flex-column gap-2" (click)="onClick">
+                              <span class="rounded border-2 p-2  w-auto  d-inline-flex align-items-center justify-content-center"
+                                [ngClass]="{'bg-primary border-primary': index <= active, 'border': index > active }">
+                                <i class="pi pi-id-card"></i>
+                              </span>
+                            </button>
+                          </ng-template>
+                          <ng-template pTemplate="content" let-prevCallback="prevCallback">
+                            <div class="d-flex  flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                              <div class="text-center mt-3  text-xl fw-bolder">Account created successfully</div>
+                              <div class="text-center m-auto">
+                                <i class="fa-regular fa-circle-check fa-2xl " style="color: #249b22; font-size: 100px;"></i>
+                              </div>
+                            </div>
+                            <div class="d-flex pt-4 justify-content-between">
+                              <button class="btn btn-secondary p-1" pButton (click)="prevCallback.emit()" label="Back"></button>
+                              <button class="btn btn-primary p-1" pButton (click)="getStarted()" label="Get Started"></button>
+                            </div>
+                          </ng-template>
+                        </p-stepperPanel>
+                      </p-stepper>
+                    </div>
+                  </div>
+                </form>
+              </section>
 
 
