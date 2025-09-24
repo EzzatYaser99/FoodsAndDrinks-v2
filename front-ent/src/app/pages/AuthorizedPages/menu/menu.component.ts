@@ -12,6 +12,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataViewModule } from 'primeng/dataview';
 import { SpinnerComponent } from '../../../shared/component/spinner/spinner.component';
 import {CommonModule} from "@angular/common";
+import {CascadeSelect} from "primeng/cascadeselect";
 
 
 
@@ -20,7 +21,7 @@ import {CommonModule} from "@angular/common";
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.scss'],
     standalone: true,
-  imports: [CommonModule,SpinnerComponent, DataViewModule, SharedModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent]
+  imports: [CommonModule, SpinnerComponent, DataViewModule, SharedModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent, CascadeSelect]
 })
 export class MenuComponent {
   sortSalaryOptions: any;
