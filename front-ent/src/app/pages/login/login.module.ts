@@ -10,7 +10,6 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {HttpIntercepterBaseAuthService} from "../../shared/services/security/http-intercepter-base-auth.service";
-import {GoogleSigninButtonModule, SocialAuthService} from "@abacritt/angularx-social-login";
 
 
 
@@ -20,7 +19,7 @@ import {GoogleSigninButtonModule, SocialAuthService} from "@abacritt/angularx-so
         ButtonModule,
         RippleModule,
         ReactiveFormsModule,
-        LoginComponent], providers: [AuthenticationService, SocialAuthService,
+        LoginComponent], providers: [AuthenticationService,
         { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBaseAuthService, multi: true }, provideHttpClient(withInterceptorsFromDi())] })
 export class LoginModule {
 }
