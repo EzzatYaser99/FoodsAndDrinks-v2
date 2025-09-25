@@ -14,7 +14,7 @@ import {User} from "../../../model/user";
 import {Router} from "@angular/router";
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
-import { CurrencyPipe } from '@angular/common';
+import {CurrencyPipe} from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import {CascadeSelect} from "primeng/cascadeselect";
 

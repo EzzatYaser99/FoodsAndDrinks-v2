@@ -112,9 +112,11 @@
                                   class="w-100" filterBy="name" formControlName="Country" ngModelOptions="{standalone: true}"
                                   optionLabel="name" placeholder="Select a Country">
                         <ng-template class="col-12" pTemplate="selectedItem">
-                          <div *ngIf="selectedFromCountry" class="country-item country-item-value">
+                          @if (selectedFromCountry){
+                          <div class="country-item country-item-value">
                             <div>{{selectedFromCountry.name}}</div>
                         </div>
+                          }
                     </ng-template>
                     <ng-template let-country pTemplate="item">
                       <div class="country-item">
@@ -128,9 +130,11 @@
                       filterBy="name" formControlName="State"
                       optionLabel="name" placeholder="Select a State">
             <ng-template pTemplate="selectedItem">
-              <div *ngIf="selectedFromState" class="country-item country-item-value">
+              @if (selectedFromState){
+              <div  class="country-item country-item-value">
                 <div>{{selectedFromState.name}}</div>
               </div>
+              }
             </ng-template>
             <ng-template let-country pTemplate="item">
               <div class="country-item">

@@ -21,7 +21,7 @@
 
           <div class="product-name mt-2">{{order.name}}</div>
           <div class="product-description  mb-2">{{order.description}}</div>
-          <p-rating [cancel]="false" [ngModel]="order.rating" [readonly]="true" class=""></p-rating>
+          <p-rating  [ngModel]="order.rating" [readonly]="true" class=""></p-rating>
         </div>
         <div class="product-grid-item-bottom justify-content-between  mt-3">
           <span class="product-price">${{order.price}}</span>
