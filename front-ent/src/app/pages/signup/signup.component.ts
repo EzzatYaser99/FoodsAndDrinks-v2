@@ -6,10 +6,10 @@ import {
   FormsModule,
 } from "@angular/forms";
 import {Router, RouterLink} from "@angular/router";
-import {HttpHeaders} from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {SpaceValidator} from "../../model/space-validator";
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {CommonModule, NgClass} from '@angular/common';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
@@ -25,13 +25,12 @@ import {StepperModule} from "primeng/stepper";
 import {IconFieldModule} from "primeng/iconfield";
 import {InputIconModule} from "primeng/inputicon";
 import {ToggleButtonModule} from "primeng/togglebutton";
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule, TooltipModule, CheckboxModule, StepperModule, NgClass, IconFieldModule, InputIconModule, ToggleButtonModule]
+  imports: [CommonModule ,ReactiveFormsModule, RouterLink, InputTextModule, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, PasswordModule, TooltipModule, CheckboxModule, StepperModule, NgClass, IconFieldModule, InputIconModule, ToggleButtonModule]
 })
 export class SignupComponent implements OnInit ,OnDestroy{
   signupForm: any;

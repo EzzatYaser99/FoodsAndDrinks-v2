@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { PrimeNGConfig, SelectItem, SharedModule } from "primeng/api";
+import {SharedModule } from "primeng/api";
 import {CategoryService} from "../../../shared/services/category.service";
 import {Category} from "../../../model/category";
 import {Order} from "../../../model/order";
@@ -9,10 +9,11 @@ import { OrderItemGridComponent } from '../../../shared/component/orders-grid/or
 import { OrderItemListComponent } from '../../../shared/component/orders-list/order-item-list.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
 import { DataViewModule } from 'primeng/dataview';
 import { SpinnerComponent } from '../../../shared/component/spinner/spinner.component';
-import {NgForOf, NgIf} from '@angular/common';
+import {CommonModule} from "@angular/common";
+import {CascadeSelect} from "primeng/cascadeselect";
+
 
 
 @Component({
@@ -20,7 +21,7 @@ import {NgForOf, NgIf} from '@angular/common';
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.scss'],
     standalone: true,
-  imports: [NgIf, SpinnerComponent, DataViewModule, SharedModule, DropdownModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent, NgForOf]
+  imports: [CommonModule, SpinnerComponent, DataViewModule, SharedModule, ReactiveFormsModule, FormsModule, InputTextModule, OrderItemListComponent, OrderItemGridComponent, CascadeSelect]
 })
 export class MenuComponent {
   sortSalaryOptions: any;
@@ -35,7 +36,6 @@ export class MenuComponent {
   cartProducts: any[] = [];
 
   constructor(
-    private primengConfig: PrimeNGConfig,
     private categoryService: CategoryService,
     private orderService: OrderService,
     private route: ActivatedRoute
@@ -70,7 +70,6 @@ export class MenuComponent {
       {label: 'Extras', keyValue: 'Extras'},
     ];
 
-    this.primengConfig.ripple = true;
   }
 
   onSortChange(event: any) {

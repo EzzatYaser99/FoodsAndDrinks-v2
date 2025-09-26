@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginUserInformationService} from "./shared/services/login-user-information.service";
 import {FooterInfo} from "./shared/component/footer/FooterInfo";
-import {PrimeNGConfig} from "primeng/api";
 import { NavigationStart, Router, RouterOutlet } from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
 import { FooterComponent } from './shared/component/footer/footer.component';
@@ -19,11 +18,9 @@ export class AppComponent implements OnInit{
 
   constructor(
     public _loginInfo: LoginUserInformationService,
-    private primengConfig: PrimeNGConfig,
     private _router: Router,
     private _cook:CookieService
   ) {
-    this.primengConfig.ripple = false;
 
   }
 

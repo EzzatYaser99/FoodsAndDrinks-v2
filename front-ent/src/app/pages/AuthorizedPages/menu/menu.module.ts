@@ -4,11 +4,9 @@ import {MenuRoutingModule} from './menu-routing.module';
 import {MenuComponent} from './menu.component';
 import {ButtonModule} from "primeng/button";
 import {DataViewModule} from "primeng/dataview";
-import {DropdownModule} from "primeng/dropdown";
 import {FormsModule} from "@angular/forms";
 import {RatingModule} from "primeng/rating";
-import {ChipsModule} from "primeng/chips";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {CarouselModule} from "primeng/carousel";
 import {PanelModule} from "primeng/panel";
 import {InputTextModule} from "primeng/inputtext";
@@ -19,24 +17,16 @@ import {OrderService} from "../../../shared/services/order.service";
 import {SharedModule} from "../../../shared/shared.module";
 
 
-@NgModule({
-    imports: [
-        DataViewModule,
+@NgModule({ exports: [
+        MenuComponent
+    ], imports: [DataViewModule,
         PanelModule,
         DialogModule,
-        DropdownModule,
         InputTextModule,
         ButtonModule,
         RippleModule,
-        HttpClientModule,
         RatingModule,
-        FormsModule, CommonModule, MenuRoutingModule, CarouselModule, ChipsModule, SharedModule,
-        MenuComponent
-    ],
-    exports: [
-        MenuComponent
-    ],
-    providers: [CategoryService, OrderService]
-})
+        FormsModule, CommonModule, MenuRoutingModule, CarouselModule, SharedModule,
+        MenuComponent], providers: [CategoryService, OrderService, provideHttpClient(withInterceptorsFromDi())] })
 export class MenuModule {
 }
