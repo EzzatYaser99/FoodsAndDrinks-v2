@@ -3,13 +3,14 @@ import {Component, OnInit} from '@angular/core';
 import {Category} from "../../../model/category";
 import {CategoryService} from "../../../shared/services/category.service";
 import {Router} from "@angular/router";
-import {Carousel} from "primeng/carousel";
+import {CarouselModule} from "primeng/carousel";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   imports: [
-    Carousel
+    CarouselModule
+
   ],
   styleUrls: ['./home.component.scss']
 })
