@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {LoginRoutingModule} from './login-routing.module';
 import {LoginComponent} from './login.component';
 import {CheckboxModule} from "primeng/checkbox";
+import {ChipsModule} from "primeng/chips";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -17,6 +18,7 @@ import {GoogleSigninButtonModule, SocialAuthService} from "@abacritt/angularx-so
 @NgModule({ imports: [CommonModule,
         LoginRoutingModule,
         CheckboxModule,
+        ChipsModule,
         ButtonModule,
         RippleModule,
         ReactiveFormsModule,

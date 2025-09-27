@@ -11,7 +11,8 @@
             <span class="text-600 font-medium ">If you have an account?</span>
             <a class="font-medium no-underline ml-2 text-primary cursor-pointer" routerLink="/login">Sign In!</a>
           </div>
-          <p-stepper>
+          <p-stepper [(activeStep)]="active">
+            <p-stepperPanel>
               <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
                 <button style="cursor: auto;" pButton class="bg-transparent border-0 d-inline-flex flex-column gap-2" (click)="onClick">
                   <span class="rounded border-5 p-2  w-auto  d-inline-flex align-items-center justify-content-center"
@@ -95,6 +96,8 @@
                           <button pButton class="btn btn-cancel px-3 w-30 mx-3" label="Cancel" (click)="Cancel()"></button>
                         </div>
                       </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel>
                       <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
                         <button style="cursor: auto;" pButton class="bg-transparent  border-0 inline-flex flex-column gap-2" (click)="onClick">
                           <span class="rounded border-2 w-auto p-2 d-inline-flex align-items-center justify-content-center"
@@ -136,6 +139,8 @@
                               <button class="btn btn-primary p-1" icon="fas fa-solid fa-check" (click)="activeAccount(nextCallback)" label="Active" pButton pRipple type="submit"></button>
                             </div>
                           </ng-template>
+                        </p-stepperPanel>
+                        <p-stepperPanel>
                           <ng-template pTemplate="header" let-onClick="onClick" let-index="index">
                             <button style="cursor: auto;" class="bg-transparent border-0 inline-flex flex-column gap-2" (click)="onClick">
                               <span class="rounded border-2 p-2  w-auto  d-inline-flex align-items-center justify-content-center"
@@ -156,6 +161,7 @@
                               <button class="btn btn-primary p-1" pButton (click)="getStarted()" label="Get Started"></button>
                             </div>
                           </ng-template>
+                        </p-stepperPanel>
                       </p-stepper>
                     </div>
                   </div>

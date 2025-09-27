@@ -16,8 +16,11 @@ import {OrderService} from "./services/order.service";
 import {CartStatusComponent} from './component/cart-status/cart-status.component';
 import {BadgeModule} from "primeng/badge";
 import {ImageModule} from "primeng/image";
+import {AnimateModule} from "primeng/animate";
+import {CartService} from "./services/cart.service";
 import {StateCountryService} from "./services/state-country.service";
 import {PurchaseService} from "./services/purchase.service";
+import {AuthenticationService} from "./services/security/authentication.service";
 
 
 
@@ -30,6 +33,7 @@ import {PurchaseService} from "./services/purchase.service";
         FormsModule,
         BadgeModule,
         ImageModule,
+        AnimateModule,
         SpinnerComponent,
         ScrolltopComponent,
         FooterComponent,
