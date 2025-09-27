@@ -6,7 +6,7 @@ import {
   FormsModule,
 } from "@angular/forms";
 import {Router, RouterLink} from "@angular/router";
-import { HttpHeaders } from "@angular/common/http";
+import {HttpHeaders} from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {SpaceValidator} from "../../model/space-validator";
 import {NgClass, NgForOf, NgIf} from '@angular/common';

@@ -8,7 +8,7 @@ import {DropdownModule} from "primeng/dropdown";
 import {FormsModule} from "@angular/forms";
 import {RatingModule} from "primeng/rating";
 import {ChipsModule} from "primeng/chips";
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {CarouselModule} from "primeng/carousel";
 import {PanelModule} from "primeng/panel";
 import {InputTextModule} from "primeng/inputtext";
@@ -19,17 +19,24 @@ import {OrderService} from "../../../shared/services/order.service";
 import {SharedModule} from "../../../shared/shared.module";
 
 
-@NgModule({ exports: [
-        MenuComponent
-    ], imports: [DataViewModule,
+@NgModule({
+    imports: [
+        DataViewModule,
         PanelModule,
         DialogModule,
         DropdownModule,
         InputTextModule,
         ButtonModule,
         RippleModule,
+        HttpClientModule,
         RatingModule,
         FormsModule, CommonModule, MenuRoutingModule, CarouselModule, ChipsModule, SharedModule,
-        MenuComponent], providers: [CategoryService, OrderService, provideHttpClient(withInterceptorsFromDi())] })
+        MenuComponent
+    ],
+    exports: [
+        MenuComponent
+    ],
+    providers: [CategoryService, OrderService]
+})
 export class MenuModule {
 }
