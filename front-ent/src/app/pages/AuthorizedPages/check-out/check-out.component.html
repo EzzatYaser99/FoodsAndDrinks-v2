@@ -102,70 +102,67 @@
             </div>
             <!--          End Dev one-->
             <!--    start Dev two From Person-->
-                <div class="row  m-auto text-center" formGroupName="From">
-                  <div class="col-12 m-auto "><h2>From :</h2></div>
-                  <div class="col-8 m-auto row ">
-                    <div class="col-lg-6 col-12 m-auto ">
-                      <p-cascadeSelect (onChange)="filterStates($event)" [(ngModel)]="selectedFromCountry"
-
-                                  [showClear]="true"
-                                  class="w-100" filterBy="name" formControlName="Country" ngModelOptions="{standalone: true}"
-                                  optionLabel="name" placeholder="Select a Country">
-                        <ng-template class="col-12" pTemplate="selectedItem">
-                          @if (selectedFromCountry){
-                          <div class="country-item country-item-value">
-                            <div>{{selectedFromCountry.name}}</div>
-                        </div>
-                          }
-                    </ng-template>
-                    <ng-template let-country pTemplate="item">
-                      <div class="country-item">
-                        <div>{{country.name}}</div>
-                    </div>
-                </ng-template>
-            </p-cascadeSelect>
-        </div>
-        <div class="col-lg-6 col-12  m-auto">
-          <p-cascadeSelect [(ngModel)]="selectedFromState"
-                      filterBy="name" formControlName="State"
-                      optionLabel="name" placeholder="Select a State">
-            <ng-template pTemplate="selectedItem">
-              @if (selectedFromState){
-              <div  class="country-item country-item-value">
-                <div>{{selectedFromState.name}}</div>
-              </div>
-              }
-            </ng-template>
-            <ng-template let-country pTemplate="item">
-              <div class="country-item">
-                <div>{{country.name}}</div>
-              </div>
-            </ng-template>
-          </p-cascadeSelect>
-        </div>
-      </div>
-      <div class="col-xl-7 col-lg-5 col-sm-8 col-12 m-auto">
-        <div class="p-inputgroup ">
-          <span class="p-inputgroup-addon">Zip Code</span>
-          <input formControlName="ZipCode" pInputText placeholder="" type="text">
-        </div>
-      </div>
-    </div>
-    <!--End Dev two From Person-->
-    <!--start Dev similar-->
-    <div class="row text-center flex justify-content-center align-items-center m-auto">
-      <input (change)="similarGroup($event)" class="p-checkbox" type="checkbox">
-      <label class="m-2">Similar</label>
-    </div>
+            <!--    <div class="row  m-auto text-center" formGroupName="From">-->
+            <!--      <div class="col-12 m-auto "><h2>From :</h2></div>-->
+            <!--      <div class="col-8 m-auto row ">-->
+            <!--        <div class="col-lg-6 col-12 m-auto ">-->
+            <!--          <p-dropdown (onChange)="filterStates($event)" [(ngModel)]="selectedFromCountry" [filter]="true"-->
+            <!--                      [options]="countries"-->
+            <!--                      [showClear]="true" [virtualScrollItemSize]="30" [virtualScroll]="true"-->
+            <!--                      class="w-100" filterBy="name" formControlName="Country" ngModelOptions="{standalone: true}"-->
+            <!--                      optionLabel="name" placeholder="Select a Country">-->
+            <!--            <ng-template class="col-12" pTemplate="selectedItem">-->
+            <!--              <div *ngIf="selectedFromCountry" class="country-item country-item-value">-->
+            <!--                <div>{{selectedFromCountry.name}}</div>-->
+          <!--              </div>-->
+        <!--            </ng-template>-->
+        <!--            <ng-template let-country pTemplate="item">-->
+        <!--              <div class="country-item">-->
+        <!--                <div>{{country.name}}</div>-->
+      <!--              </div>-->
+    <!--            </ng-template>-->
+  <!--          </p-dropdown>-->
+<!--        </div>-->
+<!--        <div class="col-lg-6 col-12  m-auto">-->
+<!--          <p-dropdown [(ngModel)]="selectedFromState"-->
+<!--                      [filter]="true" [options]="FromStates" [showClear]="true"-->
+<!--                      [virtualScrollItemSize]="30" [virtualScroll]="true" filterBy="name" formControlName="State"-->
+<!--                      optionLabel="name" placeholder="Select a State">-->
+<!--            <ng-template pTemplate="selectedItem">-->
+<!--              <div *ngIf="selectedFromState" class="country-item country-item-value">-->
+<!--                <div>{{selectedFromState.name}}</div>-->
+<!--              </div>-->
+<!--            </ng-template>-->
+<!--            <ng-template let-country pTemplate="item">-->
+<!--              <div class="country-item">-->
+<!--                <div>{{country.name}}</div>-->
+<!--              </div>-->
+<!--            </ng-template>-->
+<!--          </p-dropdown>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-xl-7 col-lg-5 col-sm-8 col-12 m-auto">-->
+<!--        <div class="p-inputgroup ">-->
+<!--          <span class="p-inputgroup-addon">Zip Code</span>-->
+<!--          <input formControlName="ZipCode" pInputText placeholder="" type="text">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;End Dev two From Person&ndash;&gt;-->
+<!--    &lt;!&ndash;start Dev similar&ndash;&gt;-->
+<!--    <div class="row text-center flex justify-content-center align-items-center m-auto">-->
+<!--      <input (change)="similarGroup($event)" class="p-checkbox" type="checkbox">-->
+<!--      <label class="m-2">Similar</label>-->
+<!--    </div>-->
 <!--End Dev similar-->
 <!--start Dev three To Person-->
 <div class="row  m-auto text-center" formGroupName="To">
   <div class="col-12 m-auto "><h2>To:</h2></div>
   <div class="col-8 m-auto row ">
     <div class="col-lg-6 col-12 m-auto ">
-      <p-cascadeselect (onChange)="filterStates($event)" [(ngModel)]="selectedToCountry"
-         [showClear]="true"
-        filterBy="name" formControlName="Country"
+      <p-dropdown (onChange)="filterStates($event)" [(ngModel)]="selectedToCountry" [filter]="true"
+        [options]="countries" [showClear]="true"
+        [virtualScrollItemSize]="30" [virtualScroll]="true" filterBy="name" formControlName="Country"
         optionLabel="name" placeholder="Select a Country">
         <ng-template pTemplate="selectedItem">
           @if (selectedToCountry) {
@@ -179,11 +176,11 @@
             <div>{{country.name}}</div>
           </div>
         </ng-template>
-      </p-cascadeselect>
+      </p-dropdown>
     </div>
     <div class="col-lg-6 col-12 m-auto ">
-      <p-cascadeSelect [(ngModel)]="selectedToState"  [showClear]="true"
-        filterBy="name" formControlName="State"
+      <p-dropdown [(ngModel)]="selectedToState" [filter]="true" [options]="ToStates" [showClear]="true"
+        [virtualScrollItemSize]="30" [virtualScroll]="true" filterBy="name" formControlName="State"
         optionLabel="name" placeholder="Select a State">
         <ng-template pTemplate="selectedItem">
           @if (selectedToState) {
@@ -197,7 +194,7 @@
             <div>{{country.name}}</div>
           </div>
         </ng-template>
-      </p-cascadeSelect>
+      </p-dropdown>
     </div>
   </div>
   <div class="col-xl-7 col-lg-5 col-sm-8 col-12 m-auto">
@@ -213,9 +210,9 @@
   <div class="col-12 m-auto text-center"><h2>Card Type :</h2></div>
 
   <div class="col-12 ">
-    <p-cascadeSelect [(ngModel)]="selectedCreditCard" [options]="CreditCard" [showClear]="true"
+    <p-dropdown [(ngModel)]="selectedCreditCard" [options]="CreditCard" [showClear]="true"
       formControlName="CardType" optionLabel="name"
-    placeholder="Select a City"></p-cascadeSelect>
+    placeholder="Select a City"></p-dropdown>
   </div>
 
   <div class="col-xl-6 col-lg-6 col-sm-8 col-12 m-auto ">
