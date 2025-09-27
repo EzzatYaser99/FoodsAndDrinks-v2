@@ -16,17 +16,17 @@ import {MainRoutingModule} from "../../main/main-routing.module";
 
 
 @NgModule({ declarations: [
-        HomeComponent
-    ],
-    bootstrap: [HomeComponent], imports: [CommonModule,
-        HomeRoutingModule,
-        CarouselModule,
-        ButtonModule,
-        CarouselModule,
-        ButtonModule,
-        ToastModule,
-        FormsModule,
-        CarouselModule,
-        MainRoutingModule], providers: [CategoryService, provideHttpClient(withInterceptorsFromDi())] })
+
+  ],
+  bootstrap: [], imports: [CommonModule,
+    HomeRoutingModule,
+    CarouselModule,
+    ButtonModule,
+    CarouselModule,
+    ButtonModule,
+    ToastModule,
+    FormsModule,
+    CarouselModule,
+    MainRoutingModule], providers: [CategoryService, provideHttpClient(withInterceptorsFromDi())] })
 export class HomeModule {
 }
