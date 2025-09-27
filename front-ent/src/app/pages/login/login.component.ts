@@ -13,7 +13,7 @@ import {SocialMediaService} from "../../shared/services/social-media.service";
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import { NgIf } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 
 
@@ -22,7 +22,7 @@ import { InputTextModule } from 'primeng/inputtext';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
     standalone: true,
-    imports: [ReactiveFormsModule, RouterLink, InputTextModule, CheckboxModule, ButtonModule, RippleModule]
+    imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, CheckboxModule, ButtonModule, RippleModule]
 })
 export class LoginComponent implements OnInit {
 

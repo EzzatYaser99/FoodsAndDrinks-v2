@@ -9,7 +9,7 @@ import {Router, RouterLink} from "@angular/router";
 import { HttpHeaders } from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
 import {SpaceValidator} from "../../model/space-validator";
-import { NgClass } from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
@@ -31,7 +31,7 @@ import {ToggleButtonModule} from "primeng/togglebutton";
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, InputTextModule, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, PasswordModule, TooltipModule, CheckboxModule, StepperModule, NgClass, IconFieldModule, InputIconModule, ToggleButtonModule]
+  imports: [ReactiveFormsModule, RouterLink, InputTextModule, NgIf, ButtonModule, RippleModule, InputGroupModule, InputGroupAddonModule, RadioButtonModule, FormsModule, NgForOf, PasswordModule, TooltipModule, CheckboxModule, StepperModule, NgClass, IconFieldModule, InputIconModule, ToggleButtonModule]
 })
 export class SignupComponent implements OnInit ,OnDestroy{
   signupForm: any;

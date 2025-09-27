@@ -6,14 +6,14 @@ import {Router} from "@angular/router";
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-reset-password',
     templateUrl: './reset-password.component.html',
     styleUrls: ['./reset-password.component.scss'],
     standalone: true,
-    imports: [ReactiveFormsModule, InputTextModule, ButtonModule, RippleModule]
+    imports: [ReactiveFormsModule, NgIf, InputTextModule, ButtonModule, RippleModule]
 })
 export class ResetPasswordComponent implements OnInit {
 

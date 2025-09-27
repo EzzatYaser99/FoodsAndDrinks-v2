@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../shared/services/security/authenticati
 import {Router} from "@angular/router";
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
-
+import { NgIf } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
@@ -13,7 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
     templateUrl: './activation-code.component.html',
     styleUrls: ['./activation-code.component.scss'],
     standalone: true,
-    imports: [ReactiveFormsModule, InputTextModule, ButtonModule, RippleModule]
+    imports: [ReactiveFormsModule, InputTextModule, NgIf, ButtonModule, RippleModule]
 })
 export class ActivationCodeComponent implements OnInit {
 
