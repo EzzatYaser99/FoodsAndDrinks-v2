@@ -4,7 +4,11 @@ import { Router, RouterLink } from "@angular/router";
 import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import {AuthenticationService} from "../../shared/services/security/authentication.service";
+import {
+  FacebookLoginProvider,
+  SocialAuthService,
 
+} from "@abacritt/angularx-social-login";
 import {SocialMediaService} from "../../shared/services/social-media.service";
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
@@ -31,6 +35,7 @@ export class LoginComponent implements OnInit {
               private _formBuilder: FormBuilder,
               private _http: HttpClient,
               private authService: AuthenticationService,
+              private socialAuthService: SocialAuthService,
 private socialMediaService:SocialMediaService){
   }
 
@@ -96,17 +101,17 @@ private socialMediaService:SocialMediaService){
   }
 
   signInWithFB(): void {
-    // this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
-    //   data => {
-    //     this.socialMediaService.loginWithFacebook(data.authToken).subscribe({
-    //       next: response => {
-    //         this._router.navigate(['main/pages']);
-    //       }
-    //     });
-    //     console.log(data.authToken);
-    //     console.log(data);
-    //   }
-    // );
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      data => {
+        this.socialMediaService.loginWithFacebook(data.authToken).subscribe({
+          next: response => {
+            this._router.navigate(['main/pages']);
+          }
+        });
+        console.log(data.authToken);
+        console.log(data);
+      }
+    );
   }
 
 
