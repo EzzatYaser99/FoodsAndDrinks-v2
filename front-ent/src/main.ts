@@ -24,24 +24,24 @@ import { PrimeNGConfig } from 'primeng/api';
 
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    importProvidersFrom(BrowserModule, AppRoutingModule, ReactiveFormsModule, SharedModule, ButtonModule, ImageModule, ChipsModule, DropdownModule, FormsModule, CheckboxModule, MessageModule, RippleModule, SocialLoginModule),
-    PrimeNGConfig, OrderService, CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBaseAuthService, multi: true },
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('903014054091443')
-          }
-        ]
-      } as SocialAuthServiceConfig,
-    },
-    provideAnimations(),
-    provideHttpClient(withInterceptorsFromDi())
-  ]
+    providers: [
+        importProvidersFrom(BrowserModule, AppRoutingModule, ReactiveFormsModule, SharedModule, ButtonModule, ImageModule, ChipsModule, DropdownModule, FormsModule, CheckboxModule, MessageModule, RippleModule, SocialLoginModule),
+        PrimeNGConfig, OrderService, CookieService,
+        { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBaseAuthService, multi: true },
+        {
+            provide: 'SocialAuthServiceConfig',
+            useValue: {
+                autoLogin: false,
+                providers: [
+                    {
+                        id: FacebookLoginProvider.PROVIDER_ID,
+                        provider: new FacebookLoginProvider('903014054091443')
+                    }
+                ]
+            } as SocialAuthServiceConfig,
+        },
+        provideAnimations(),
+        provideHttpClient(withInterceptorsFromDi())
+    ]
 })
   .catch(err => console.error(err));

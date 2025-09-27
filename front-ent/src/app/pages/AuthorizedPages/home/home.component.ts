@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Category} from "../../../model/category";
 import {CategoryService} from "../../../shared/services/category.service";
 import {Router} from "@angular/router";
+import * as url from "url";
 
 @Component({
   selector: 'app-home',
