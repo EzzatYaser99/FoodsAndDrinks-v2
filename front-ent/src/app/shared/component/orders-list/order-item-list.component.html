@@ -7,7 +7,7 @@
   <div class="product-list-detail">
     <div class="product-name">{{data.name}}</div>
     <div class="product-description">{{data.description}}</div>
-    <p-rating  [ngModel]="data.rating" [readonly]="true"></p-rating>
+    <p-rating [cancel]="false" [ngModel]="data.rating" [readonly]="true"></p-rating>
     <!-- <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>-->
   </div>
   <div class="product-list-action">

@@ -29,6 +29,7 @@
             <i class="pi pi-search"></i>
             <input #key (keyup)="doSearch(key.value)" pInputText placeholder="Search by Name" type="search">
           </span>
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
         </div>
       </ng-template>
       <ng-template let-product pTemplate="list" let-orders>
